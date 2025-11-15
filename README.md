@@ -1,9 +1,6 @@
 # roadwayvr.github.io
 SUMO Traffic Simulator Tutorials and Open Learning Materials
 
-# roadwayvr.github.io
-SUMO Traffic Simulator Tutorials and Open Learning Materials
-
 ## License
 
 - **Code** in this repository is licensed under the MIT License (see `LICENSE`),  
