@@ -46,6 +46,11 @@
         letter-spacing: 0.03em;
       }
 
+      .section-subtitle {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
       /* Big hero image */
       .hero-main-img {
         border-radius: 6px;
@@ -78,9 +83,38 @@
         margin: 2.5rem 0 1.5rem;
       }
 
-      footer {
-        border-top: 1px solid #ddd;
-        background-color: #fff;
+      .little-star {
+        font-size: 1.6rem;
+        color: #777;
+      }
+
+      /* Large tutorial images in basic / advanced sections */
+      .tutorial-large-img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
+      }
+
+      /* Checkmark list */
+      .check-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .check-list li {
+        position: relative;
+        padding-left: 1.4rem;
+        margin-bottom: 0.35rem;
+        font-size: 0.95rem;
+      }
+
+      .check-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #198754;
+        font-weight: 700;
       }
 
       /* Portrait photo under the quote */
@@ -92,6 +126,27 @@
         object-fit: cover;
         display: block;
         margin: 1.5rem auto 1.5rem;
+      }
+
+      footer {
+        border-top: 1px solid #ddd;
+        background-color: #fff;
+      }
+
+      .footer-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-link {
+        display: block;
+        text-decoration: none;
+        color: #6c757d;
+        margin-bottom: 0.25rem;
+      }
+
+      .footer-link:hover {
+        color: #0d6efd;
       }
     </style>
   </head>
@@ -120,6 +175,15 @@
               <a class="nav-link active" href="#top">Home</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#overview">Tutorials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#basic">Basic Tutorials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#advanced">Advanced Topics</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
@@ -138,8 +202,8 @@
     <header id="top" class="hero-banner text-center py-5">
       <div class="container">
         <p class="hero-quote mb-3">
-          "Let's Grow Together<br>
-          One Heart, One Community"
+          “Let's Grow Together<br>
+          One Heart, One Community”
         </p>
 
         <!-- Your photo -->
@@ -162,9 +226,10 @@
           <h1 class="section-title h2 mb-4">
             Open Learning Materials for Simulation of Urban Mobility (SUMO)
           </h1>
-          <p class="lead mb-4">
+          <p class="lead mb-4 section-subtitle">
             SUMO Traffic Simulator tutorials from quick start and traffic
-            signals to reinforcement learning and immersive technology.
+            signals to reinforcement learning, energy &amp; emissions, and
+            immersive VR-based traffic studies.
           </p>
 
           <!-- Big image centered with margins on both sides -->
@@ -186,9 +251,9 @@
           <h2 class="section-title h3 text-center mb-3">
             Tutorials at One Glance
           </h2>
-          <p class="text-center mb-5">
+          <p class="text-center mb-5 section-subtitle">
             SUMO tutorials from SUMO Quick Start and NetEdit to TraCI, CAVs,
-            energy & emission, and SUMO2Unity.
+            energy &amp; emission, and SUMO2Unity.
           </p>
 
           <!-- 11 tutorial parts in circles -->
@@ -202,7 +267,7 @@
                   alt="Part 1"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 1: SUMO Quick Start:
+                  Part 1: SUMO Quick Start
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Set up a basic SUMO project and get familiar with the UI.
@@ -218,7 +283,7 @@
                   alt="Part 2"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 2: SUMO NetEdit:
+                  Part 2: SUMO NetEdit
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Import GIS maps, create road networks, and add traffic volume.
@@ -234,7 +299,7 @@
                   alt="Part 3"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 3: SUMO TraCI:
+                  Part 3: SUMO TraCI
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Control the simulation from external tools for optimization.
@@ -250,7 +315,7 @@
                   alt="Part 4"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 4: SUMO NetConvert:
+                  Part 4: SUMO NetConvert
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Convert and refine network formats including OSM and OpenDRIVE.
@@ -266,7 +331,7 @@
                   alt="Part 5"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 5: Vehicle Types & Behavior:
+                  Part 5: Vehicle Types &amp; Behavior
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Explore car-following and lane-changing models for cars,
@@ -283,7 +348,7 @@
                   alt="Part 6"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 6: SUMO & Immersive Technology:
+                  Part 6: SUMO &amp; Immersive Technology
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Discover SUMO2Unity co-simulation and VR-based traffic studies.
@@ -299,7 +364,7 @@
                   alt="Part 7"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 7: SUMO & Autonomous Vehicles:
+                  Part 7: SUMO &amp; Autonomous Vehicles
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Learn fundamentals of connected and autonomous vehicles in SUMO.
@@ -315,7 +380,7 @@
                   alt="Part 8"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 8: SUMO & Machine Learning:
+                  Part 8: SUMO &amp; Machine Learning
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Reinforcement learning concepts and implementations in SUMO.
@@ -331,7 +396,7 @@
                   alt="Part 9"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 9: SUMO & Emergency Management:
+                  Part 9: SUMO &amp; Emergency Management
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Traffic signal priority and emergency vehicle behavior.
@@ -347,7 +412,7 @@
                   alt="Part 10"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 10: Energy, Emission, and EVs:
+                  Part 10: Energy, Emission, and EVs
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Energy and emission modeling for ICE and electric vehicles.
@@ -363,7 +428,7 @@
                   alt="Part 11"
                   class="circle-img">
                 <p class="tutorial-title mt-2 mb-1">
-                  Part 11: From QGIS to SUMO:
+                  Part 11: From QGIS to SUMO
                 </p>
                 <p class="tutorial-text text-muted mb-0">
                   Bring GIS networks from QGIS into SUMO.
@@ -372,6 +437,234 @@
             </div>
 
           </div> <!-- /row -->
+        </div>
+      </section>
+
+      <!-- SUMO BASIC TUTORIALS -->
+      <div class="star-divider">*</div>
+      <section id="basic" class="py-5 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 text-center mb-3">SUMO Basic Tutorials</h2>
+          <p class="text-center mb-5 section-subtitle">
+            Detailed walkthroughs for the first five tutorial parts: building
+            networks, editing geometry, using TraCI, and configuring vehicle
+            types and network conversions.
+          </p>
+
+          <!-- Part 1 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 1: SUMO Quick Start</h3>
+              <ul class="check-list">
+                <li>Installation and creation of a simple network.</li>
+                <li>Add cars and intersections (unsignalized / signalized).</li>
+                <li>SUMO files and naming: networks, routes, and demands.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="assets/img/basic-part1.jpg"
+                alt="SUMO Quick Start screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 2 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6 order-lg-2">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 2: SUMO NetEdit</h3>
+              <ul class="check-list">
+                <li>NetEdit quick start and user interface.</li>
+                <li>Step length, delay, and lane-changing parameters.</li>
+                <li>Create and edit networks directly on GIS maps.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <img
+                src="assets/img/basic-part2.jpg"
+                alt="SUMO NetEdit screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 3 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 3: SUMO TraCI</h3>
+              <ul class="check-list">
+                <li>Connect SUMO to Python or other tools via TraCI.</li>
+                <li>Change traffic signals, collect detector data, and log results.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="assets/img/basic-part3.jpg"
+                alt="SUMO TraCI screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 4 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6 order-lg-2">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 4: SUMO NetConvert</h3>
+              <ul class="check-list">
+                <li>Use OSM Web Wizard to import real networks.</li>
+                <li>Convert OpenDRIVE and other formats into SUMO networks.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <img
+                src="assets/img/basic-part4.jpg"
+                alt="SUMO NetConvert screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 5 -->
+          <div class="row align-items-center gy-4 mb-4">
+            <div class="col-lg-6">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 5: Vehicle Types &amp; Behavior</h3>
+              <ul class="check-list">
+                <li>Configure passenger cars, bikes, scooters, and more.</li>
+                <li>Car-following, lane-changing, and driver behavior parameters.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="assets/img/basic-part5.jpg"
+                alt="SUMO vehicle types screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUMO ADVANCED TOPICS -->
+      <div class="star-divider">*</div>
+      <section id="advanced" class="py-5 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 text-center mb-3">SUMO Advanced Topics</h2>
+          <p class="text-center mb-5 section-subtitle">
+            Advanced topics from immersive technology and CAVs to
+            reinforcement learning, emergency management, and GIS integration.
+          </p>
+
+          <!-- Part 6 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 6: SUMO &amp; Immersive Technology</h3>
+              <ul class="check-list">
+                <li>SUMO2Unity: from 2D SUMO to 3D Unity in minutes.</li>
+                <li>Setting up co-simulation for VR-based traffic safety studies.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="assets/img/advanced-part6.jpg"
+                alt="SUMO2Unity immersive technology screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 7 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6 order-lg-2">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 7: SUMO &amp; Autonomous Vehicles</h3>
+              <ul class="check-list">
+                <li>Fundamentals of connected and autonomous vehicles (CAVs).</li>
+                <li>Mixed traffic environments with normal cars and CAVs.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <img
+                src="assets/img/advanced-part7.jpg"
+                alt="SUMO autonomous vehicles screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 8 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 8: SUMO &amp; Machine Learning Algorithms</h3>
+              <ul class="check-list">
+                <li>Fundamentals of reinforcement learning for traffic control.</li>
+                <li>Implementing Q-learning and deep Q-learning in SUMO.</li>
+                <li>Generating and comparing experiment results.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="assets/img/advanced-part8.jpg"
+                alt="Machine learning in SUMO screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 9 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6 order-lg-2">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 9: SUMO &amp; Emergency Management</h3>
+              <ul class="check-list">
+                <li>Emergency vehicle priority and signal pre-emption.</li>
+                <li>Comparing networks with and without signal pre-emption.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <img
+                src="assets/img/advanced-part9.jpg"
+                alt="Emergency management in SUMO screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 10 -->
+          <div class="row align-items-center gy-4 mb-5">
+            <div class="col-lg-6">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">
+                Part 10: Energy, Emission, and Electric Vehicles
+              </h3>
+              <ul class="check-list">
+                <li>Energy and emission fundamentals for ICE and EV models.</li>
+                <li>Hands-on examples for evaluating energy and emissions in SUMO.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="assets/img/advanced-part10.jpg"
+                alt="Energy and emission analysis screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
+
+          <!-- Part 11 -->
+          <div class="row align-items-center gy-4 mb-4">
+            <div class="col-lg-6 order-lg-2">
+              <div class="little-star mb-2">*</div>
+              <h3 class="h4 mb-3">Part 11: From QGIS to SUMO</h3>
+              <ul class="check-list">
+                <li>Prepare aerial imagery and GIS layers in QGIS.</li>
+                <li>Georeference and export networks for use in SUMO.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <img
+                src="assets/img/advanced-part11.jpg"
+                alt="From QGIS to SUMO screenshot"
+                class="img-fluid tutorial-large-img">
+            </div>
+          </div>
         </div>
       </section>
 
@@ -397,22 +690,58 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="py-4">
+    <footer class="py-5">
       <div class="container small">
-        <div class="row">
-          <div class="col-md-6 mb-3 mb-md-0">
-            <strong>Roadway VR</strong><br>
-            SUMO "Simulation of Urban Mobility" Tutorials
+        <div class="row gy-4">
+          <div class="col-md-3">
+            <div class="d-flex align-items-center mb-2">
+              <span
+                class="navbar-brand-box border border-2 border-dark rounded-1 d-inline-flex align-items-center justify-content-center me-2">
+                VR
+              </span>
+              <span class="fw-semibold">Roadway VR</span>
+            </div>
+            <p class="mb-0">
+              SUMO “Simulation of Urban Mobility” tutorials and open learning
+              materials for researchers, students, and practitioners.
+            </p>
           </div>
-          <div class="col-md-6 text-md-end">
-            <a href="#top" class="me-3 text-decoration-none text-muted">Home</a>
-            <a href="#about" class="me-3 text-decoration-none text-muted">About</a>
-            <a href="https://www.youtube.com/@RoadwayVR"
-               target="_blank"
-               class="me-3 text-decoration-none text-muted">YouTube</a>
-            <a href="https://github.com/Ahmad1441"
-               target="_blank"
-               class="me-3 text-decoration-none text-muted">GitHub</a>
+
+          <div class="col-md-3">
+            <div class="footer-title">About</div>
+            <a href="#about" class="footer-link">About Roadway VR</a>
+            <a href="#overview" class="footer-link">Tutorial Overview</a>
+          </div>
+
+          <div class="col-md-3">
+            <div class="footer-title">Contact</div>
+            <a
+              href="mailto:AhmadMohammadi1441@gmail.com"
+              class="footer-link">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="col-md-3">
+            <div class="footer-title">Social</div>
+            <a
+              href="https://www.youtube.com/@RoadwayVR"
+              target="_blank"
+              class="footer-link">
+              YouTube
+            </a>
+            <a
+              href="https://github.com/Ahmad1441"
+              target="_blank"
+              class="footer-link">
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              class="footer-link">
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>
