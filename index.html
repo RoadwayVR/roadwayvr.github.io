@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Roadway VR - SUMO Tutorials</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous">
+
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     sans-serif;
+        scroll-behavior: smooth;
+        background-color: #fafafa;
+      }
+
+      /* NAVBAR */
+      .navbar-brand-box {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      /* Top quote banner */
+      .hero-banner {
+        background-color: #111;
+        color: #fff;
+      }
+
+      .hero-quote {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-style: italic;
+        font-size: 1.8rem;
+        line-height: 1.5;
+      }
+
+      .section-title {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+      }
+
+      /* Big hero image */
+      .hero-main-img {
+        border-radius: 6px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+      }
+
+      /* Circle tutorial images */
+      .circle-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 1rem;
+      }
+
+      .tutorial-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      .tutorial-text {
+        font-size: 0.85rem;
+      }
+
+      .star-divider {
+        font-size: 2rem;
+        color: #777;
+        text-align: center;
+        margin: 2.5rem 0 1.5rem;
+      }
+
+      footer {
+        border-top: 1px solid #ddd;
+        background-color: #fff;
+      }
+
+      /* Portrait photo under the quote */
+      .hero-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        object-fit: cover;
+        display: block;
+        margin: 1.5rem auto 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#top">
+          <span
+            class="navbar-brand-box border border-2 border-dark rounded-1 d-inline-flex align-items-center justify-content-center me-2">
+            VR
+          </span>
+          <span class="fw-semibold">Roadway VR</span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#top">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="https://www.youtube.com/@RoadwayVR"
+                 target="_blank">
+                YouTube
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- QUOTE BANNER -->
+    <header id="top" class="hero-banner text-center py-5">
+      <div class="container">
+        <p class="hero-quote mb-3">
+          "Let's Grow Together<br>
+          One Heart, One Community"
+        </p>
+
+        <!-- Your photo -->
+        <img
+          src="assets/img/profile.jpg"
+          alt="Photo of Ahmad Mohammadi"
+          class="hero-photo">
+
+        <p class="mb-1 fw-semibold">Educator: Ahmad Mohammadi</p>
+        <p class="mb-0 small text-uppercase text-muted">
+          PhD in Transportation Engineering, York University, Canada
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <!-- MAIN HEADING + BIG IMAGE -->
+      <section class="py-5 text-center bg-white">
+        <div class="container">
+          <h1 class="section-title h2 mb-4">
+            Open Learning Materials for Simulation of Urban Mobility (SUMO)
+          </h1>
+          <p class="lead mb-4">
+            SUMO Traffic Simulator tutorials from quick start and traffic
+            signals to reinforcement learning and immersive technology.
+          </p>
+
+          <!-- Big image centered with margins on both sides -->
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <img
+                src="assets/img/Firstpage.jpg"
+                alt="SUMO intersection and aerial view"
+                class="img-fluid hero-main-img">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TUTORIALS AT ONE GLANCE -->
+      <div class="star-divider">*</div>
+      <section id="overview" class="py-5 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 text-center mb-3">
+            Tutorials at One Glance
+          </h2>
+          <p class="text-center mb-5">
+            SUMO tutorials from SUMO Quick Start and NetEdit to TraCI, CAVs,
+            energy & emission, and SUMO2Unity.
+          </p>
+
+          <!-- 11 tutorial parts in circles -->
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 justify-content-center">
+
+            <!-- PART 1 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part1.jpg"
+                  alt="Part 1"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 1: SUMO Quick Start:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Set up a basic SUMO project and get familiar with the UI.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 2 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part2.png"
+                  alt="Part 2"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 2: SUMO NetEdit:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Import GIS maps, create road networks, and add traffic volume.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 3 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part3.png"
+                  alt="Part 3"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 3: SUMO TraCI:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Control the simulation from external tools for optimization.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 4 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part4.png"
+                  alt="Part 4"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 4: SUMO NetConvert:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Convert and refine network formats including OSM and OpenDRIVE.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 5 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part5.png"
+                  alt="Part 5"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 5: Vehicle Types & Behavior:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Explore car-following and lane-changing models for cars,
+                  bikes, scooters, and more.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 6 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part6.png"
+                  alt="Part 6"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 6: SUMO & Immersive Technology:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Discover SUMO2Unity co-simulation and VR-based traffic studies.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 7 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part7.png"
+                  alt="Part 7"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 7: SUMO & Autonomous Vehicles:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Learn fundamentals of connected and autonomous vehicles in SUMO.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 8 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part8.png"
+                  alt="Part 8"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 8: SUMO & Machine Learning:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Reinforcement learning concepts and implementations in SUMO.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 9 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part9.png"
+                  alt="Part 9"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 9: SUMO & Emergency Management:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Traffic signal priority and emergency vehicle behavior.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 10 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part10.png"
+                  alt="Part 10"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 10: Energy, Emission, and EVs:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Energy and emission modeling for ICE and electric vehicles.
+                </p>
+              </div>
+            </div>
+
+            <!-- PART 11 -->
+            <div class="col">
+              <div class="text-center h-100 px-3">
+                <img
+                  src="assets/img/part11.png"
+                  alt="Part 11"
+                  class="circle-img">
+                <p class="tutorial-title mt-2 mb-1">
+                  Part 11: From QGIS to SUMO:
+                </p>
+                <p class="tutorial-text text-muted mb-0">
+                  Bring GIS networks from QGIS into SUMO.
+                </p>
+              </div>
+            </div>
+
+          </div> <!-- /row -->
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <div class="star-divider">*</div>
+      <section id="about" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="section-title h3 mb-3">About Roadway VR</h2>
+          <p class="mb-3">
+            Roadway VR shares open educational material on SUMO traffic
+            simulation, digital twins, and virtual reality. The tutorials are
+            based on research and teaching experience in transportation
+            engineering at York University, Canada.
+          </p>
+          <p class="mb-0">
+            For collaboration or questions, contact:
+            <a href="mailto:AhmadMohammadi1441@gmail.com">
+              AhmadMohammadi1441@gmail.com
+            </a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-4">
+      <div class="container small">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <strong>Roadway VR</strong><br>
+            SUMO "Simulation of Urban Mobility" Tutorials
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a href="#top" class="me-3 text-decoration-none text-muted">Home</a>
+            <a href="#about" class="me-3 text-decoration-none text-muted">About</a>
+            <a href="https://www.youtube.com/@RoadwayVR"
+               target="_blank"
+               class="me-3 text-decoration-none text-muted">YouTube</a>
+            <a href="https://github.com/Ahmad1441"
+               target="_blank"
+               class="me-3 text-decoration-none text-muted">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
