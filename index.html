@@ -159,6 +159,13 @@
       .footer-link:hover {
         color: #0d6efd;
       }
+      /* Vertically center the text beside the images */
+      .tutorial-text-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* vertical centering */
+        height: 100%;
+      }
     </style>
   </head>
   <body>
@@ -464,14 +471,16 @@
 
           <!-- Part 1 -->
           <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 1: SUMO Quick Start</h3>
-              <ul class="check-list">
-                <li>Installation and creation of a simple network.</li>
-                <li>Add cars and intersections (unsignalized / signalized).</li>
-                <li>SUMO files and naming: networks, routes, and demands.</li>
-              </ul>
+            <div class="col-lg-6 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 1: SUMO Quick Start</h3>
+                <ul class="check-list">
+                  <li>Installation and creation of a simple network.</li>
+                  <li>Add cars and intersections (unsignalized / signalized).</li>
+                  <li>SUMO files and naming: networks, routes, and demands.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6">
               <img
@@ -481,16 +490,19 @@
             </div>
           </div>
 
+
           <!-- Part 2 -->
           <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6 order-lg-2">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 2: SUMO NetEdit</h3>
-              <ul class="check-list">
-                <li>NetEdit quick start and user interface.</li>
-                <li>Step length, delay, and lane-changing parameters.</li>
-                <li>Create and edit networks directly on GIS maps.</li>
-              </ul>
+            <div class="col-lg-6 order-lg-2 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 2: SUMO NetEdit</h3>
+                <ul class="check-list">
+                  <li>NetEdit quick start and user interface.</li>
+                  <li>Step length, delay, and lane-changing parameters.</li>
+                  <li>Create and edit networks directly on GIS maps.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6 order-lg-1">
               <img
@@ -499,6 +511,7 @@
                 class="img-fluid tutorial-large-img">
             </div>
           </div>
+
 
           <!-- Part 3 -->
           <div class="row align-items-center gy-4 mb-5">
