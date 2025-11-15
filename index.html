@@ -164,55 +164,71 @@
         flex-direction: column;
         justify-content: center;   /* vertical centering inside the column */
       }
+      .github-star-badge img {
+        height: 26px;      /* tweak size if you want */
+      }
+
+
     </style>
   </head>
   <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#top">
-          <span
-            class="navbar-brand-box border border-2 border-dark rounded-1 d-inline-flex align-items-center justify-content-center me-2">
-            VR
-          </span>
-          <span class="fw-semibold">Roadway VR</span>
-        </a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#top">
+      <span
+        class="navbar-brand-box border border-2 border-dark rounded-1 d-inline-flex align-items-center justify-content-center me-2">
+        VR
+      </span>
+      <span class="fw-semibold">Roadway VR</span>
+    </a>
 
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#mainNav"
-                aria-controls="mainNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" href="#top">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#overview">Tutorials</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#basic">Basic Tutorials</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#advanced">Advanced Topics</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"
-                 href="https://www.youtube.com/@RoadwayVR"
-                 target="_blank">
-                YouTube
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="#top">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#overview">Tutorials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#basic">Basic Tutorials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#advanced">Advanced Topics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             href="https://www.youtube.com/@RoadwayVR"
+             target="_blank">
+            YouTube
+          </a>
+        </li>
+
+        <!-- GitHub stars badge -->
+        <li class="nav-item github-star-badge d-flex align-items-center ms-lg-3">
+          <a class="nav-link p-0"
+             href="https://github.com/RoadwayVR/SUMO-Traffic-Simulator-Tutorial"
+             target="_blank">
+            <img
+              src="https://img.shields.io/github/stars/RoadwayVR/SUMO-Traffic-Simulator-Tutorial?style=social"
+              alt="GitHub stars: SUMO-Traffic-Simulator-Tutorial">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <!-- QUOTE BANNER -->
     <header id="top" class="hero-banner text-center py-5">
