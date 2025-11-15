@@ -94,15 +94,13 @@
         border-radius: 12px;
         box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
         display: block;
-        margin-left: auto;
+        margin-left: 0;          /* left-aligned inside the column */
         margin-right: auto;
       }
 
-      /* On desktop, keep them a bit smaller than the column
-         so the layout matches the reference site */
       @media (min-width: 992px) {
         .tutorial-large-img {
-          max-width: 540px; /* adjust this value if you want even smaller/bigger */
+          max-width: 640px;
         }
       }
 
@@ -159,12 +157,12 @@
       .footer-link:hover {
         color: #0d6efd;
       }
+
       /* Vertically center the text beside the images */
       .tutorial-text-col {
         display: flex;
         flex-direction: column;
-        justify-content: center; /* vertical centering */
-        height: 100%;
+        justify-content: center;   /* vertical centering inside the column */
       }
     </style>
   </head>
@@ -470,7 +468,7 @@
           </p>
 
           <!-- Part 1 -->
-          <div class="row align-items-center gy-4 mb-5">
+          <div class="row gy-4 mb-5">
             <div class="col-lg-6 tutorial-text-col">
               <div>
                 <div class="little-star mb-2">*</div>
@@ -490,9 +488,8 @@
             </div>
           </div>
 
-
           <!-- Part 2 -->
-          <div class="row align-items-center gy-4 mb-5">
+          <div class="row gy-4 mb-5">
             <div class="col-lg-6 order-lg-2 tutorial-text-col">
               <div>
                 <div class="little-star mb-2">*</div>
@@ -512,16 +509,17 @@
             </div>
           </div>
 
-
           <!-- Part 3 -->
-          <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 3: SUMO TraCI</h3>
-              <ul class="check-list">
-                <li>Connect SUMO to Python or other tools via TraCI.</li>
-                <li>Change traffic signals, collect detector data, and log results.</li>
-              </ul>
+          <div class="row gy-4 mb-5">
+            <div class="col-lg-6 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 3: SUMO TraCI</h3>
+                <ul class="check-list">
+                  <li>Connect SUMO to Python or other tools via TraCI.</li>
+                  <li>Change traffic signals, collect detector data, and log results.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6">
               <img
@@ -532,14 +530,16 @@
           </div>
 
           <!-- Part 4 -->
-          <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6 order-lg-2">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 4: SUMO NetConvert</h3>
-              <ul class="check-list">
-                <li>Use OSM Web Wizard to import real networks.</li>
-                <li>Convert OpenDRIVE and other formats into SUMO networks.</li>
-              </ul>
+          <div class="row gy-4 mb-5">
+            <div class="col-lg-6 order-lg-2 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 4: SUMO NetConvert</h3>
+                <ul class="check-list">
+                  <li>Use OSM Web Wizard to import real networks.</li>
+                  <li>Convert OpenDRIVE and other formats into SUMO networks.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6 order-lg-1">
               <img
@@ -550,14 +550,16 @@
           </div>
 
           <!-- Part 5 -->
-          <div class="row align-items-center gy-4 mb-4">
-            <div class="col-lg-6">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 5: Vehicle Types &amp; Behavior</h3>
-              <ul class="check-list">
-                <li>Configure passenger cars, bikes, scooters, and more.</li>
-                <li>Car-following, lane-changing, and driver behavior parameters.</li>
-              </ul>
+          <div class="row gy-4 mb-4">
+            <div class="col-lg-6 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 5: Vehicle Types &amp; Behavior</h3>
+                <ul class="check-list">
+                  <li>Configure passenger cars, bikes, scooters, and more.</li>
+                  <li>Car-following, lane-changing, and driver behavior parameters.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6">
               <img
@@ -580,14 +582,16 @@
           </p>
 
           <!-- Part 6 -->
-          <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 6: SUMO &amp; Immersive Technology</h3>
-              <ul class="check-list">
-                <li>SUMO2Unity: from 2D SUMO to 3D Unity in minutes.</li>
-                <li>Setting up co-simulation for VR-based traffic safety studies.</li>
-              </ul>
+          <div class="row gy-4 mb-5">
+            <div class="col-lg-6 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 6: SUMO &amp; Immersive Technology</h3>
+                <ul class="check-list">
+                  <li>SUMO2Unity: from 2D SUMO to 3D Unity in minutes.</li>
+                  <li>Setting up co-simulation for VR-based traffic safety studies.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6">
               <img
@@ -598,14 +602,16 @@
           </div>
 
           <!-- Part 7 -->
-          <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6 order-lg-2">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 7: SUMO &amp; Autonomous Vehicles</h3>
-              <ul class="check-list">
-                <li>Fundamentals of connected and autonomous vehicles (CAVs).</li>
-                <li>Mixed traffic environments with normal cars and CAVs.</li>
-              </ul>
+          <div class="row gy-4 mb-5">
+            <div class="col-lg-6 order-lg-2 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 7: SUMO &amp; Autonomous Vehicles</h3>
+                <ul class="check-list">
+                  <li>Fundamentals of connected and autonomous vehicles (CAVs).</li>
+                  <li>Mixed traffic environments with normal cars and CAVs.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6 order-lg-1">
               <img
@@ -616,15 +622,17 @@
           </div>
 
           <!-- Part 8 -->
-          <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 8: SUMO &amp; Machine Learning Algorithms</h3>
-              <ul class="check-list">
-                <li>Fundamentals of reinforcement learning for traffic control.</li>
-                <li>Implementing Q-learning and deep Q-learning in SUMO.</li>
-                <li>Generating and comparing experiment results.</li>
-              </ul>
+          <div class="row gy-4 mb-5">
+            <div class="col-lg-6 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 8: SUMO &amp; Machine Learning Algorithms</h3>
+                <ul class="check-list">
+                  <li>Fundamentals of reinforcement learning for traffic control.</li>
+                  <li>Implementing Q-learning and deep Q-learning in SUMO.</li>
+                  <li>Generating and comparing experiment results.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6">
               <img
@@ -635,14 +643,16 @@
           </div>
 
           <!-- Part 9 -->
-          <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6 order-lg-2">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 9: SUMO &amp; Emergency Management</h3>
-              <ul class="check-list">
-                <li>Emergency vehicle priority and signal pre-emption.</li>
-                <li>Comparing networks with and without signal pre-emption.</li>
-              </ul>
+          <div class="row gy-4 mb-5">
+            <div class="col-lg-6 order-lg-2 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 9: SUMO &amp; Emergency Management</h3>
+                <ul class="check-list">
+                  <li>Emergency vehicle priority and signal pre-emption.</li>
+                  <li>Comparing networks with and without signal pre-emption.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6 order-lg-1">
               <img
@@ -653,16 +663,18 @@
           </div>
 
           <!-- Part 10 -->
-          <div class="row align-items-center gy-4 mb-5">
-            <div class="col-lg-6">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">
-                Part 10: Energy, Emission, and Electric Vehicles
-              </h3>
-              <ul class="check-list">
-                <li>Energy and emission fundamentals for ICE and EV models.</li>
-                <li>Hands-on examples for evaluating energy and emissions in SUMO.</li>
-              </ul>
+          <div class="row gy-4 mb-5">
+            <div class="col-lg-6 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2ﬂ">*</div>
+                <h3 class="h4 mb-3">
+                  Part 10: Energy, Emission, and Electric Vehicles
+                </h3>
+                <ul class="check-list">
+                  <li>Energy and emission fundamentals for ICE and EV models.</li>
+                  <li>Hands-on examples for evaluating energy and emissions in SUMO.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6">
               <img
@@ -673,14 +685,16 @@
           </div>
 
           <!-- Part 11 -->
-          <div class="row align-items-center gy-4 mb-4">
-            <div class="col-lg-6 order-lg-2">
-              <div class="little-star mb-2">*</div>
-              <h3 class="h4 mb-3">Part 11: From QGIS to SUMO</h3>
-              <ul class="check-list">
-                <li>Prepare aerial imagery and GIS layers in QGIS.</li>
-                <li>Georeference and export networks for use in SUMO.</li>
-              </ul>
+          <div class="row gy-4 mb-4">
+            <div class="col-lg-6 order-lg-2 tutorial-text-col">
+              <div>
+                <div class="little-star mb-2">*</div>
+                <h3 class="h4 mb-3">Part 11: From QGIS to SUMO</h3>
+                <ul class="check-list">
+                  <li>Prepare aerial imagery and GIS layers in QGIS.</li>
+                  <li>Georeference and export networks for use in SUMO.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6 order-lg-1">
               <img
@@ -761,7 +775,7 @@
               GitHub
             </a>
             <a
-              href="https://https://www.linkedin.com/in/ahmadmohammadi1441/"
+              href="https://www.linkedin.com/in/ahmadmohammadi1441/"
               target="_blank"
               class="footer-link">
               LinkedIn
