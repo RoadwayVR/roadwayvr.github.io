@@ -21,14 +21,14 @@
       crossorigin="anonymous">
 
     <style>
-      body {
+      body{
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         background-color: #fafafa;
         scroll-behavior: smooth;
       }
 
       /* NAVBAR */
-      .navbar-brand-box {
+      .navbar-brand-box{
         width: 32px;
         height: 32px;
         font-size: 0.8rem;
@@ -43,39 +43,39 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-      
+
         color: rgba(255,255,255,0.92);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-      
       .hero h1{
         font-family: "Georgia", "Times New Roman", serif;
         letter-spacing: 0.02em;
         color: rgba(255,255,255,0.98);
       }
-      
-      /* optional: make the paragraph slightly softer but still white */
       .hero .lead{
         color: rgba(255,255,255,0.90);
       }
-      /* CARDS / TYPO */
-      .card-soft {
+
+      /* Cards / Typo */
+      .card-soft{
         border: 1px solid rgba(0,0,0,0.06);
         box-shadow: 0 10px 30px rgba(0,0,0,0.06);
       }
-      .section-title {
+      .section-title{
         font-family: "Georgia", "Times New Roman", serif;
         font-weight: 500;
         letter-spacing: 0.02em;
       }
-      .badge-pill {
-        border: 1px solid rgba(0,0,0,0.10);
-        background: #fff;
-        color: #111;
+
+      /* Keyword pills (make them purple) */
+      .badge-pill{
+        border: 1px solid rgba(109,40,210,0.35);
+        background: rgba(109,40,210,0.10);
+        color: #6D28D2;
       }
 
-      /* PREVIEW VIDEO CARD */
+      /* Preview video */
       .preview-video-wrap{
         position: relative;
         border-radius: 12px;
@@ -101,7 +101,7 @@
         letter-spacing: 0.02em;
       }
 
-      /* COURSE CODE PILL (optional) */
+      /* Course code pill */
       .course-code-pill{
         display: inline-block;
         padding: 6px 12px;
@@ -114,19 +114,7 @@
         text-transform: uppercase;
       }
 
-      /* FOOTER */
-      footer {
-        border-top: 1px solid #ddd;
-        background-color: #fff;
-      }
-      .footer-link {
-        display: block;
-        text-decoration: none;
-        color: #6c757d;
-        margin-bottom: 0.25rem;
-      }
-      .footer-link:hover { color: #0d6efd; }
-  
+      /* Buttons */
       .btn-primary{
         background-color: #6D28D2 !important;
         border-color: #6D28D2 !important;
@@ -136,6 +124,23 @@
         border-color: #5B21B6 !important;
       }
 
+      /* Make the instructor line purple (as requested) */
+      .hero .instructor-line{
+        color: #6D28D2;
+      }
+
+      /* Footer */
+      footer{
+        border-top: 1px solid #ddd;
+        background-color: #fff;
+      }
+      .footer-link{
+        display: block;
+        text-decoration: none;
+        color: #6c757d;
+        margin-bottom: 0.25rem;
+      }
+      .footer-link:hover{ color: #0d6efd; }
     </style>
   </head>
 
@@ -163,11 +168,10 @@
               <a class="nav-link" href="/">Home</a>
             </li>
 
-            <!-- Show code in navbar label -->
             <li class="nav-item">
               <a class="nav-link active" href="/trafficSimulationModelling/">RWR4015</a>
             </li>
-            
+
             <li class="nav-item">
               <a class="nav-link" href="#resources">Resources</a>
             </li>
@@ -190,12 +194,10 @@
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
 
-            <!-- Course code on its own line (optional) -->
             <div class="mb-2">
               <span class="course-code-pill">RWR4015</span>
             </div>
 
-            <!-- Course title -->
             <h1 class="display-6 mb-3">Traffic Simulation Modelling</h1>
 
             <p class="lead mb-3">
@@ -209,7 +211,7 @@
               <span class="badge badge-pill rounded-pill px-3 py-2">Traffic Impact Study</span>
             </div>
 
-            <p class="mt-3 mb-0 small text-white-50">
+            <p class="mt-3 mb-0 small instructor-line">
               Instructor: Ahmad Mohammadi · RoadwayVR
             </p>
           </div>
@@ -221,11 +223,9 @@
 
                 <div class="preview-video-wrap">
                   <video class="preview-video" autoplay muted loop playsinline>
-                    <!-- FIXED PATH: your video is in /assets/video/preview.mp4 -->
                     <source src="/assets/video/preview.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
-
                   <div class="preview-badge">Preview</div>
                 </div>
 
@@ -254,22 +254,25 @@
           </p>
 
           <div class="row g-4">
+            <!-- Learning Goals -->
             <div class="col-md-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h3 class="h5 mb-3">Learning Goals</h3>
                   <ul class="mb-0">
-                    <li>Build and run traffic simulation models for planning studies</li>
-                    <li>Create/import road networks using GIS/OSM data and check model readiness</li>
-                    <li>Define traffic movement/volume/speed and verify it in simulation</li>
-                    <li>Design and test intersection control strategies (unsignalized, fixed-time)</li>
-                    <li>Evaluate alternatives using planning KPIs (delay, queue, emissions/energy)</li>
-                    <li>Communicate results with clear tables/plots</li>
+                    <li>Explain where simulation fits in transportation planning studies</li>
+                    <li>Build/import road networks using GIS/OSM data and check model readiness</li>
+                    <li>Define and verify traffic movement, volume, and speed assumptions</li>
+                    <li>Design and test intersection control strategies (unsignalized, fixed-time, actuated)</li>
+                    <li>Model mixed traffic and CAV scenarios and compare alternatives</li>
+                    <li>Evaluate alternatives using planning KPIs (delay, queues, travel time, emissions/energy)</li>
+                    <li>Communicate results with clear tables, plots, and evidence-based recommendations</li>
                   </ul>
                 </div>
               </div>
             </div>
 
+            <!-- Assessment -->
             <div class="col-md-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
@@ -291,8 +294,38 @@
         </div>
       </section>
 
+      <!-- COURSE OVERVIEW (Mission removed) -->
+      <section id="overview" class="py-5 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 mb-3">Course Overview</h2>
+          <p class="text-muted mb-4">
+            How the course is structured and what it prepares you to do.
+          </p>
+
+          <div class="row g-4">
+            <div class="col-lg-12">
+              <div class="card card-soft h-100">
+                <div class="card-body">
+                  <h3 class="h5 mb-3">Course overview (planning modules)</h3>
+                  <p class="mb-0 text-muted">
+                    This course is organized as a series of practical planning modules. Each week introduces
+                    a key capability used in transportation planning studies—network building (GIS/OSM),
+                    demand modelling, signal control, mixed traffic/CAV scenarios, environmental assessment,
+                    ITS concepts, and 3D/VR visualization. Weekly hands-on sessions are self-contained and
+                    produce small deliverables (e.g., a working model, a scenario test, or a KPI summary).
+                    In the final weeks, students assemble selected components into a mini alternatives analysis
+                    and communicate results through a short demo video and a public-facing project page.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- WEEKLY PLAN -->
-      <section id="weeks" class="py-5 bg-white">
+      <section id="weeks" class="py-5">
         <div class="container">
           <h2 class="section-title h3 mb-3">Weekly Plan (example)</h2>
           <p class="text-muted mb-4">
@@ -329,7 +362,7 @@
       </section>
 
       <!-- RESOURCES -->
-      <section id="resources" class="py-5">
+      <section id="resources" class="py-5 bg-white">
         <div class="container">
           <h2 class="section-title h3 mb-3">Resources</h2>
 
@@ -339,9 +372,9 @@
                 <div class="card-body">
                   <h3 class="h5 mb-3">Software</h3>
                   <ul class="mb-0">
-                    <li>SUMO (Simulation of Urban Mobility)</li>
-                    <li>NetEdit / TraCI basics</li>
-                    <li>Optional: VISSIM / Aimsun (if available)</li>
+                    <li>Traffic simulation software (microsimulation)</li>
+                    <li>GIS tools for network building (QGIS / OSM)</li>
+                    <li>Optional: game engine tools for 3D/VR visualization</li>
                   </ul>
                 </div>
               </div>
@@ -385,6 +418,7 @@
           <div class="col-md-4">
             <div class="fw-semibold mb-2">Navigation</div>
             <a href="#outline" class="footer-link">Outline</a>
+            <a href="#overview" class="footer-link">Course Overview</a>
             <a href="#weeks" class="footer-link">Weekly Plan</a>
             <a href="#resources" class="footer-link">Resources</a>
           </div>
