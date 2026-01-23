@@ -43,12 +43,23 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+      
+        /* ✅ make all text in hero white */
+        color: #fff;
       }
-      .hero h1 {
+      
+      .hero h1{
         font-family: "Georgia", "Times New Roman", serif;
         letter-spacing: 0.02em;
+      
+        /* optional: make sure heading is pure white */
+        color: #fff;
       }
-
+      
+      /* optional: make the paragraph slightly softer but still white */
+      .hero .lead{
+        color: rgba(255,255,255,0.90);
+      }
       /* CARDS / TYPO */
       .card-soft {
         border: 1px solid rgba(0,0,0,0.06);
