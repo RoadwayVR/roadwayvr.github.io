@@ -1,1 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Traffic Simulation Modelling | Roadway VR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6JRWT6F5F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q6JRWT6F5F');
+    </script>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous">
+
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background-color: #fafafa;
+        scroll-behavior: smooth;
+      }
+      .navbar-brand-box {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+      .hero {
+        background: #111;
+        color: #fff;
+      }
+      .hero h1 {
+        font-family: "Georgia", "Times New Roman", serif;
+        letter-spacing: 0.02em;
+      }
+      .card-soft {
+        border: 1px solid rgba(0,0,0,0.06);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      }
+      .section-title {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+      .badge-pill {
+        border: 1px solid rgba(0,0,0,0.10);
+        background: #fff;
+        color: #111;
+      }
+      footer {
+        border-top: 1px solid #ddd;
+        background-color: #fff;
+      }
+      .footer-link {
+        display: block;
+        text-decoration: none;
+        color: #6c757d;
+        margin-bottom: 0.25rem;
+      }
+      .footer-link:hover { color: #0d6efd; }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <span class="navbar-brand-box border border-2 border-dark rounded-1 d-inline-flex align-items-center justify-content-center me-2">
+            VR
+          </span>
+          <span class="fw-semibold">Roadway VR</span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/trafficSimulationModelling/">Traffic Simulation Modelling</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#outline">Outline</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#weeks">Weekly Plan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#resources">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.youtube.com/@RoadwayVR" target="_blank" rel="noopener noreferrer">
+                YouTube
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h1 class="display-6 mb-3">Traffic Simulation Modelling</h1>
+            <p class="lead mb-3">
+              A course template site (replace text later): fundamentals of traffic simulation,
+              network building, demand modelling, signal timing, calibration, and evaluation.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge badge-pill rounded-pill px-3 py-2">SUMO / VISSIM / Aimsun</span>
+              <span class="badge badge-pill rounded-pill px-3 py-2">Signals + Demand</span>
+              <span class="badge badge-pill rounded-pill px-3 py-2">Calibration + KPIs</span>
+              <span class="badge badge-pill rounded-pill px-3 py-2">Digital Twin Concepts</span>
+            </div>
+
+            <div class="mt-4 d-flex flex-wrap gap-2">
+              <a class="btn btn-light" href="#outline">View Outline</a>
+              <a class="btn btn-outline-light" href="#weeks">Weekly Plan</a>
+            </div>
+
+            <p class="mt-3 mb-0 small text-white-50">
+              Instructor: Ahmad Mohammadi · RoadwayVR
+            </p>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="card card-soft p-3">
+              <div class="card-body">
+                <h2 class="h6 mb-3">Quick Links</h2>
+                <div class="d-grid gap-2">
+                  <a class="btn btn-primary" href="#" onclick="alert('Replace with your syllabus link'); return false;">Syllabus (PDF)</a>
+                  <a class="btn btn-outline-primary" href="#" onclick="alert('Replace with your lecture folder link'); return false;">Lectures</a>
+                  <a class="btn btn-outline-primary" href="#" onclick="alert('Replace with your labs/assignments link'); return false;">Assignments</a>
+                  <a class="btn btn-outline-primary" href="mailto:AhmadMohammadi1441@gmail.com">Contact</a>
+                </div>
+                <p class="small text-muted mt-3 mb-0">
+                  Tip: Upload PDFs into a folder like <code>trafficSimulationModelling/files/</code> and link them here.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- OUTLINE -->
+      <section id="outline" class="py-5">
+        <div class="container">
+          <h2 class="section-title h3 mb-3">Course Outline</h2>
+          <p class="text-muted mb-4">
+            This is a starter template. Replace topics with your real content when ready.
+          </p>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card card-soft h-100">
+                <div class="card-body">
+                  <h3 class="h5 mb-3">Learning Goals</h3>
+                  <ul class="mb-0">
+                    <li>Build a simulation-ready road network (nodes, links, lanes)</li>
+                    <li>Define traffic demand (movement + volume + speed assumptions)</li>
+                    <li>Model signal timing (cycle, splits, lost time)</li>
+                    <li>Calibrate and evaluate using KPIs (delay, queue, throughput, emissions)</li>
+                    <li>Communicate results with clear plots and tables</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card card-soft h-100">
+                <div class="card-body">
+                  <h3 class="h5 mb-3">Assessment (example)</h3>
+                  <ul class="mb-0">
+                    <li>Mini assignments (30%)</li>
+                    <li>Midterm project: baseline model (25%)</li>
+                    <li>Final project: scenario comparison + report (35%)</li>
+                    <li>Participation / quizzes (10%)</li>
+                  </ul>
+                  <p class="small text-muted mt-3 mb-0">
+                    Replace these weights with your real grading scheme.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WEEKLY PLAN -->
+      <section id="weeks" class="py-5 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 mb-3">Weekly Plan (example)</h2>
+          <p class="text-muted mb-4">
+            A simple 12-week structure you can edit.
+          </p>
+
+          <div class="table-responsive card card-soft">
+            <table class="table table-striped mb-0">
+              <thead>
+                <tr>
+                  <th style="width: 90px;">Week</th>
+                  <th>Topic</th>
+                  <th>Deliverable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>What is traffic simulation? Models, assumptions, inputs/outputs</td><td>Short quiz</td></tr>
+                <tr><td>2</td><td>Network building: nodes/links/lanes, geometry, speed limits</td><td>Network draft</td></tr>
+                <tr><td>3</td><td>Traffic demand: movement + volume + OD, route choice basics</td><td>Demand file</td></tr>
+                <tr><td>4</td><td>Signal timing: phases, cycle length, splits, lost time</td><td>Signal plan</td></tr>
+                <tr><td>5</td><td>Calibration overview: what to match, how to validate</td><td>Calibration targets</td></tr>
+                <tr><td>6</td><td>KPIs: delay, stopped delay, queue, throughput, emissions</td><td>KPI table</td></tr>
+                <tr><td>7</td><td>Scenario analysis: baseline vs improvement alternatives</td><td>Alt #1</td></tr>
+                <tr><td>8</td><td>Microsimulation realism: lane-changing, car-following, parameters</td><td>Alt #2</td></tr>
+                <tr><td>9</td><td>Visualization and reporting: plots, maps, storytelling</td><td>Draft report</td></tr>
+                <tr><td>10</td><td>Optimization intro: fixed-time, Webster-style concepts (high-level)</td><td>Mini exercise</td></tr>
+                <tr><td>11</td><td>Digital Twin workflow: sensing → modelling → optimizing → decisions</td><td>Project update</td></tr>
+                <tr><td>12</td><td>Final presentations</td><td>Final report</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RESOURCES -->
+      <section id="resources" class="py-5">
+        <div class="container">
+          <h2 class="section-title h3 mb-3">Resources</h2>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card card-soft h-100">
+                <div class="card-body">
+                  <h3 class="h5 mb-3">Software</h3>
+                  <ul class="mb-0">
+                    <li>SUMO (Simulation of Urban Mobility)</li>
+                    <li>NetEdit / TraCI basics</li>
+                    <li>Optional: VISSIM / Aimsun (if available)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card card-soft h-100">
+                <div class="card-body">
+                  <h3 class="h5 mb-3">Links</h3>
+                  <ul class="mb-0">
+                    <li><a href="/" class="link-primary">RoadwayVR Home</a></li>
+                    <li><a href="https://www.youtube.com/@RoadwayVR" target="_blank" rel="noopener noreferrer" class="link-primary">RoadwayVR YouTube</a></li>
+                    <li><a href="https://github.com/RoadwayVR" target="_blank" rel="noopener noreferrer" class="link-primary">RoadwayVR GitHub</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+      <div class="container small">
+        <div class="row gy-4">
+          <div class="col-md-4">
+            <div class="d-flex align-items-center mb-2">
+              <span class="navbar-brand-box border border-2 border-dark rounded-1 d-inline-flex align-items-center justify-content-center me-2">
+                VR
+              </span>
+              <span class="fw-semibold">Roadway VR</span>
+            </div>
+            <p class="mb-0">
+              Course materials and open tutorials for traffic simulation, digital twins, and immersive transportation education.
+            </p>
+          </div>
+
+          <div class="col-md-4">
+            <div class="fw-semibold mb-2">Navigation</div>
+            <a href="#outline" class="footer-link">Outline</a>
+            <a href="#weeks" class="footer-link">Weekly Plan</a>
+            <a href="#resources" class="footer-link">Resources</a>
+          </div>
+
+          <div class="col-md-4">
+            <div class="fw-semibold mb-2">Contact</div>
+            <a href="mailto:AhmadMohammadi1441@gmail.com" class="footer-link">Email</a>
+            <a href="https://www.linkedin.com/in/ahmadmohammadi1441/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
 
