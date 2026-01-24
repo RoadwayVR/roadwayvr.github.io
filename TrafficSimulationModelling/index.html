@@ -123,11 +123,6 @@
         border-color: #5B21B6 !important;
       }
 
-      /* Make the instructor line purple (as requested) */
-      .hero .instructor-line{
-        color: #6D28D2;
-      }
-
       /* Footer */
       footer{
         border-top: 1px solid #ddd;
@@ -140,6 +135,37 @@
         margin-bottom: 0.25rem;
       }
       .footer-link:hover{ color: #0d6efd; }
+
+      /* Materials links */
+      .material-links a{
+        text-decoration: none;
+      }
+      .material-links a:hover{
+        text-decoration: underline;
+      }
+      .material-pill{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(109,40,210,0.25);
+        background: rgba(109,40,210,0.06);
+        color: #6D28D2;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+      .material-pill:hover{
+        background: rgba(109,40,210,0.10);
+      }
+      .material-muted{
+        color: #6c757d;
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 576px){
+        .material-pill{ font-size: 0.85rem; }
+      }
     </style>
   </head>
 
@@ -256,13 +282,13 @@
             <div class="col-lg-12">
               <div class="card card-soft h-100">
                 <div class="card-body">
-                  <h3 class="h5 mb-3">Course overview </h3>
+                  <h3 class="h5 mb-3">Course overview</h3>
                   <p class="mb-0 text-muted">
                     This course is organized as a series of practical planning modules. Each week introduces
                     a key capability used in transportation planning studies—network building (GIS/OSM),
                     demand modelling, signal control, mixed traffic/CAV scenarios, environmental assessment,
                     ITS concepts, and 3D/VR visualization. Weekly hands-on sessions are self-contained and
-                    produce small deliverables (e.g., a working model, a scenario test, or a KPI summary).
+                    produce small outputs (e.g., a working model, a scenario test, or a KPI summary).
                     In the final weeks, students assemble selected components into a mini alternatives analysis
                     and communicate results through a short demo video and a public-facing project page.
                   </p>
@@ -273,13 +299,12 @@
 
         </div>
       </section>
-      
+
       <!-- OUTLINE -->
       <section id="outline" class="py-5">
         <div class="container">
           <h2 class="section-title h3 mb-3">Course Outline</h2>
-            <p class="text-muted mb-4">What you’ll learn and how you’ll be evaluated.</p>
-          </p>
+          <p class="text-muted mb-4">What you’ll learn and how you’ll be evaluated.</p>
 
           <div class="row g-4">
             <!-- Learning Goals -->
@@ -307,8 +332,8 @@
                   <h3 class="h5 mb-3">Assessment (example)</h3>
                   <ul class="mb-0">
                     <li>In-class Deliverables (15%)</li>
-                    <li>Transportation News Brief (Each student presents once) (10%)</li>
-                    <li>Final project (35%)</li>
+                    <li>Transportation News Brief (each student presents once) (10%)</li>
+                    <li>Final Project (35%)</li>
                     <li>Assignments (10%)</li>
                     <li>Midterm Examination (25%)</li>
                     <li>Participation (5%)</li>
@@ -324,36 +349,145 @@
         </div>
       </section>
 
-      <!-- Topics -->
+      <!-- Topics / Materials -->
       <section id="weeks" class="py-5">
         <div class="container">
           <h2 class="section-title h3 mb-3">Topics</h2>
           <p class="text-muted mb-4">
-            The week-by-week course topics are summarized in the table below.
+            The week-by-week topics and materials (slides + hands-on) are listed below.
           </p>
 
           <div class="table-responsive card card-soft">
-            <table class="table table-striped mb-0">
+            <table class="table table-striped mb-0 align-middle">
               <thead>
                 <tr>
                   <th style="width: 90px;">Week</th>
                   <th>Topic</th>
-                  <th>Deliverable</th>
+                  <th style="width: 320px;">Materials</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>1</td><td>What is traffic simulation? Models, assumptions, inputs/outputs</td><td>Short quiz</td></tr>
-                <tr><td>2</td><td>Network building: nodes/links/lanes, geometry, speed limits</td><td>Network draft</td></tr>
-                <tr><td>3</td><td>Traffic demand: movement + volume + OD, route choice basics</td><td>Demand file</td></tr>
-                <tr><td>4</td><td>Signal timing: phases, cycle length, splits, lost time</td><td>Signal plan</td></tr>
-                <tr><td>5</td><td>Calibration overview: what to match, how to validate</td><td>Calibration targets</td></tr>
-                <tr><td>6</td><td>KPIs: delay, stopped delay, queue, throughput, emissions</td><td>KPI table</td></tr>
-                <tr><td>7</td><td>Scenario analysis: baseline vs improvement alternatives</td><td>Alt #1</td></tr>
-                <tr><td>8</td><td>Microsimulation realism: lane-changing, car-following, parameters</td><td>Alt #2</td></tr>
-                <tr><td>9</td><td>Visualization and reporting: plots, maps, storytelling</td><td>Draft report</td></tr>
-                <tr><td>10</td><td>Optimization intro: fixed-time, Webster-style concepts (high-level)</td><td>Mini exercise</td></tr>
-                <tr><td>11</td><td>Digital Twin workflow: sensing → modelling → optimizing → decisions</td><td>Project update</td></tr>
-                <tr><td>12</td><td>Final presentations</td><td>Final report</td></tr>
+                <!-- NOTE: Replace # with your real PDF URLs -->
+                <tr>
+                  <td>1</td>
+                  <td>What is traffic simulation? Models, assumptions, inputs/outputs</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>Network building: nodes/links/lanes, geometry, speed limits</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>Traffic demand: movement + volume + OD, route choice basics</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>4</td>
+                  <td>Signal timing: phases, cycle length, splits, lost time</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>5</td>
+                  <td>Calibration overview: what to match, how to validate</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>6</td>
+                  <td>KPIs: delay, stopped delay, queue, throughput, emissions</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>7</td>
+                  <td>Scenario analysis: baseline vs improvement alternatives</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>8</td>
+                  <td>Microsimulation realism: lane-changing, car-following, parameters</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>9</td>
+                  <td>Visualization and reporting: plots, maps, storytelling</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>10</td>
+                  <td>Optimization intro: fixed-time, Webster-style concepts (high-level)</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>11</td>
+                  <td>Digital Twin workflow: sensing → modelling → optimizing → decisions</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>12</td>
+                  <td>Final presentations</td>
+                  <td class="material-links">
+                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    <div class="material-muted mt-1">Add links when ready</div>
+                  </td>
+                </tr>
+
               </tbody>
             </table>
           </div>
@@ -419,7 +553,7 @@
             <div class="fw-semibold mb-2">Navigation</div>
             <a href="#outline" class="footer-link">Outline</a>
             <a href="#overview" class="footer-link">Course Overview</a>
-            <a href="#weeks" class="footer-link">Weekly Plan</a>
+            <a href="#weeks" class="footer-link">Topics</a>
             <a href="#resources" class="footer-link">Resources</a>
           </div>
 
