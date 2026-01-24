@@ -123,7 +123,7 @@
         border-color: #5B21B6 !important;
       }
 
-      /* Outline-style buttons in Topics table */
+      /* Outline-style buttons */
       .btn-outline-primary{
         color: #6D28D2 !important;
         border-color: rgba(109,40,210,0.45) !important;
@@ -133,6 +133,39 @@
         color: #fff !important;
         background: #6D28D2 !important;
         border-color: #6D28D2 !important;
+      }
+
+      /* ===== Course Evaluation (right card) ===== */
+      .eval-item{
+        display: flex;
+        gap: 14px;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .eval-left{ flex: 1 1 320px; }
+      .eval-title{
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .eval-metric{
+        color: #6c757d;
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+      .rating-star{
+        color: #f59e0b; /* amber */
+        margin-right: 6px;
+      }
+      .eval-cta{
+        flex: 0 0 auto;
+        margin-left: auto;
+      }
+      .eval-cta .btn{
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        white-space: nowrap;
       }
 
       /* ===== Topics table polish (final pass) ===== */
@@ -189,23 +222,8 @@
         .materials-col{ width: auto; }
         .materials-stack{ align-items: stretch; }
         .materials-stack .btn{ width: 100%; text-align: center; }
-      }
-
-      /* Course Evaluation mini-cards */
-      .eval-item{
-        border: 1px solid rgba(0,0,0,0.06);
-        border-radius: 12px;
-        padding: 12px;
-        background: rgba(0,0,0,0.01);
-      }
-      .eval-title{
-        font-weight: 700;
-        margin-bottom: 2px;
-      }
-      .eval-meta{
-        color: #6c757d;
-        font-size: 0.9rem;
-        line-height: 1.35;
+        .eval-cta{ width: 100%; }
+        .eval-cta .btn{ width: 100%; text-align: center; }
       }
 
       /* Footer */
@@ -332,10 +350,9 @@
             How the course is structured and what it prepares you to do.
           </p>
 
-          <!-- Make these two columns identical width (like Learning Goals vs Assessment) -->
+          <!-- Two identical-width cards (like Learning Goals / Assessment) -->
           <div class="row g-4">
-            <!-- Left: Course overview -->
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h3 class="h5 mb-3">Course overview</h3>
@@ -352,53 +369,67 @@
               </div>
             </div>
 
-            <!-- Right: Course Evaluation -->
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h3 class="h5 mb-3">Course Evaluation</h3>
 
                   <!-- 1) Udemy -->
-                  <div class="eval-item mb-3">
-                    <div class="eval-title">1) Course on Udemy</div>
-                    <div class="eval-meta">
-                      Rating: <strong>4.5</strong> / 5 · <strong>31</strong> ratings
-                    </div>
-                    <div class="mt-2">
-                      <!-- Replace # with your Udemy link -->
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">View on Udemy</a>
-                    </div>
-                  </div>
-
-                  <!-- 2) YouTube -->
-                  <div class="eval-item mb-3">
-                    <div class="eval-title">2) Course on YouTube</div>
-                    <div class="eval-meta">
-                      Views (last 28 days): ___<br>
-                      Watch time: ___ hours<br>
-                      Subscribers: ___
-                    </div>
-                    <div class="mt-2 d-flex flex-wrap gap-2">
-                      <a class="btn btn-sm btn-outline-primary" href="https://www.youtube.com/@RoadwayVR" target="_blank" rel="noopener noreferrer">Subscribe</a>
-                      <a class="btn btn-sm btn-outline-primary" href="https://www.youtube.com/@RoadwayVR/videos" target="_blank" rel="noopener noreferrer">Watch videos</a>
-                    </div>
-                  </div>
-
-                  <!-- 3) GitHub -->
                   <div class="eval-item">
-                    <div class="eval-title">3) Course on GitHub</div>
-                    <div class="eval-meta">
-                      Stars: ___<br>
-                      Repo: SUMO Traffic Simulator Tutorial
+                    <div class="eval-left">
+                      <div class="eval-title">1) Course on Udemy</div>
+                      <div class="eval-metric">
+                        <span class="rating-star">★</span><strong>4.5</strong> course rating · <strong>31</strong> ratings
+                      </div>
                     </div>
-                    <div class="mt-2">
-                      <a class="btn btn-sm btn-outline-primary"
-                         href="https://github.com/RoadwayVR/SUMO-Traffic-Simulator-Tutorial"
-                         target="_blank" rel="noopener noreferrer">
-                        View repository
+                    <div class="eval-cta">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">
+                        View on Udemy
                       </a>
                     </div>
                   </div>
+
+                  <hr class="my-3">
+
+                  <!-- 2) YouTube -->
+                  <div class="eval-item">
+                    <div class="eval-left">
+                      <div class="eval-title">2) Course on YouTube</div>
+                      <div class="eval-metric">
+                        Views (last 28 days): ___<br>
+                        Watch time: ___ hours
+                      </div>
+                    </div>
+                    <div class="eval-cta">
+                      <a class="btn btn-sm btn-outline-primary" href="https://www.youtube.com/@RoadwayVR" target="_blank" rel="noopener noreferrer">
+                        View on YouTube
+                      </a>
+                    </div>
+                  </div>
+
+                  <hr class="my-3">
+
+                  <!-- 3) GitHub -->
+                  <div class="eval-item">
+                    <div class="eval-left">
+                      <div class="eval-title">3) Course on GitHub</div>
+                      <div class="eval-metric">
+                        Stars: <strong><span id="githubStars">—</span></strong><br>
+                        Repo: <span class="text-muted">SUMO Traffic Simulator Tutorial</span>
+                      </div>
+                    </div>
+                    <div class="eval-cta">
+                      <a class="btn btn-sm btn-outline-primary"
+                         href="https://github.com/RoadwayVR/SUMO-Traffic-Simulator-Tutorial"
+                         target="_blank" rel="noopener noreferrer">
+                        View on GitHub
+                      </a>
+                    </div>
+                  </div>
+
+                  <p class="small text-muted mt-3 mb-0">
+                    Replace placeholders with your latest Udemy/YouTube analytics when ready.
+                  </p>
 
                 </div>
               </div>
@@ -744,5 +775,27 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"></script>
+
+    <!-- Auto-update GitHub stars -->
+    <script>
+      (function(){
+        const owner = "RoadwayVR";
+        const repo = "SUMO-Traffic-Simulator-Tutorial";
+        const el = document.getElementById("githubStars");
+        if (!el) return;
+
+        fetch(`https://api.github.com/repos/${owner}/${repo}`)
+          .then(r => r.ok ? r.json() : Promise.reject(r))
+          .then(data => {
+            const stars = data && typeof data.stargazers_count === "number"
+              ? data.stargazers_count.toLocaleString()
+              : "—";
+            el.textContent = stars;
+          })
+          .catch(() => {
+            el.textContent = "—";
+          });
+      })();
+    </script>
   </body>
 </html>
