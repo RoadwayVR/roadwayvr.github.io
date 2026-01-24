@@ -123,54 +123,73 @@
         border-color: #5B21B6 !important;
       }
 
-          /* ===== Topics table polish ===== */
-    .topics-table th { font-weight: 600; }
-    .topics-table td { vertical-align: top; }
+      /* Outline-style buttons in Topics table */
+      .btn-outline-primary{
+        color: #6D28D2 !important;
+        border-color: rgba(109,40,210,0.45) !important;
+        background: rgba(109,40,210,0.06) !important;
+      }
+      .btn-outline-primary:hover{
+        color: #fff !important;
+        background: #6D28D2 !important;
+        border-color: #6D28D2 !important;
+      }
 
-    .topics-table .week-cell{
-      width: 70px;
-      font-weight: 700;
-      color: #111;
-    }
+      /* ===== Topics table polish (final pass) ===== */
+      .topics-table th{ font-weight: 700; }
+      .topics-table td{ vertical-align: top; }
+      .topics-table td, .topics-table th{ padding: 14px 16px; }
 
-    .topic-title{
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
+      .topics-table .week-cell{
+        width: 70px;
+        font-weight: 700;
+        color: #111;
+        text-align: center;
+        white-space: nowrap;
+      }
 
-    .topic-line{
-      margin-top: 4px;
-      line-height: 1.35;
-      color: #6c757d;
-    }
-    .topic-line strong{ color: #111; }
+      .topic-title{
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
 
-    .btn-outline-primary{
-      color: #6D28D2 !important;
-      border-color: rgba(109,40,210,0.45) !important;
-      background: rgba(109,40,210,0.06) !important;
-    }
-    .btn-outline-primary:hover{
-      color: #fff !important;
-      background: #6D28D2 !important;
-      border-color: #6D28D2 !important;
-    }
+      .topic-line{
+        margin-top: 4px;
+        line-height: 1.35;
+        color: #6c757d;
+        font-size: 0.95rem;
+      }
+      .topic-line strong{ color: #111; }
 
-    .materials-col{ width: 320px; }
-    .materials-col .btn{
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 0.9rem;
-    }
-    .materials-note{
-      margin-top: 6px;
-      font-size: 0.85rem;
-      color: #6c757d;
-    }
+      .topic-line ul{
+        margin: 6px 0 0;
+        padding-left: 1.1rem;
+      }
+      .topic-line li{ margin-bottom: 4px; }
 
-    .topics-table td, .topics-table th{
-      padding: 14px 16px;
-    }
+      .materials-col{ width: 260px; }
+      .materials-stack{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .materials-stack .btn{
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        width: fit-content;
+      }
+
+      .topics-table tbody tr:hover{
+        background: rgba(109,40,210,0.04);
+      }
+
+      @media (max-width: 768px){
+        .materials-col{ width: auto; }
+        .materials-stack{ align-items: stretch; }
+        .materials-stack .btn{ width: 100%; text-align: center; }
+      }
 
       /* Footer */
       footer{
@@ -184,52 +203,6 @@
         margin-bottom: 0.25rem;
       }
       .footer-link:hover{ color: #0d6efd; }
-
-      /* Materials links */
-      .material-links a{ text-decoration: none; }
-      .material-links a:hover{ text-decoration: underline; }
-
-      .material-pill{
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(109,40,210,0.25);
-        background: rgba(109,40,210,0.06);
-        color: #6D28D2;
-        font-size: 0.9rem;
-        white-space: nowrap;
-      }
-      .material-pill:hover{
-        background: rgba(109,40,210,0.10);
-      }
-      .material-muted{
-        color: #6c757d;
-        font-size: 0.85rem;
-      }
-
-      /* Topic formatting in table */
-      .topic-title{
-        font-weight: 600;
-      }
-      .topic-line{
-        font-size: 0.9rem;
-        color: #6c757d;
-        margin-top: 6px;
-      }
-      .topic-list{
-        margin-top: 6px;
-        margin-bottom: 0;
-        padding-left: 18px;
-        color: #6c757d;
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 576px){
-        .material-pill{ font-size: 0.85rem; }
-        .topic-line, .topic-list{ font-size: 0.85rem; }
-      }
     </style>
   </head>
 
@@ -422,185 +395,199 @@
           </p>
 
           <div class="table-responsive card card-soft">
-            <table class="table table-striped mb-0 align-middle">
+            <table class="table table-striped mb-0 topics-table">
               <thead>
                 <tr>
-                  <th style="width: 90px;">Week</th>
+                  <th class="week-cell">Week</th>
                   <th>Topic (Theory + Hands-on)</th>
-                  <th style="width: 320px;">Materials</th>
+                  <th class="materials-col">Materials</th>
                 </tr>
               </thead>
               <tbody>
                 <!-- NOTE: Replace # with your real PDF URLs -->
                 <tr>
-                  <td>1</td>
+                  <td class="week-cell">1</td>
                   <td>
                     <div class="topic-title">Introduction to Traffic Simulation</div>
                     <div class="topic-line"><strong>Theory:</strong> What traffic simulation is, why it’s used, examples of planning studies, course overview</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Set up the simulation software; explore files/UI; build a simple network; add traffic demand; test unsignalized vs signalized intersections</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>2</td>
+                  <td class="week-cell">2</td>
                   <td>
                     <div class="topic-title">Traffic Flow &amp; Driver Behavior Models</div>
                     <div class="topic-line"><strong>Theory:</strong> Network elements, vehicle characteristics/dynamics, car-following and lane-changing, fundamentals (flow–density–speed)</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Create/import networks; add volumes; define vehicle types; compare behavior settings for cars, bikes, and scooters</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>3</td>
+                  <td class="week-cell">3</td>
                   <td>
                     <div class="topic-title">Traffic Signal Planning in Simulation</div>
                     <div class="topic-line"><strong>Theory:</strong> Signalized vs unsignalized control, phases/cycle/lost time, fixed-time vs actuated control, basic optimization concepts</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Build a signalized intersection; define phase programs; test fixed-time vs actuated timing</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>4</td>
+                  <td class="week-cell">4</td>
                   <td>
                     <div class="topic-title">Network Modelling with GIS &amp; OSM</div>
                     <div class="topic-line"><strong>Theory:</strong> GIS basics, why GIS matters for simulation, what network details affect results</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Intro to QGIS; download/prepare GIS/OSM data; import/build a network from GIS/OSM layers</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>5</td>
+                  <td class="week-cell">5</td>
                   <td>
                     <div class="topic-title">Demand Modelling &amp; Route Assignment</div>
                     <div class="topic-line"><strong>Theory:</strong> Calibration basics for planning, defining movement/volume/speed assumptions</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Create routes/flows; load volumes; verify movements and speeds in the simulation</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>6</td>
+                  <td class="week-cell">6</td>
                   <td>
                     <div class="topic-title">Mixed Traffic Planning: AVs &amp; Human Drivers</div>
                     <div class="topic-line"><strong>Theory:</strong> CAV fundamentals, automation levels, mixed-traffic impacts, how simulators represent AV behavior</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Create manual vs AV classes; test penetration rates (0%, 25%, 50%); compare alternatives using KPIs</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>7</td>
+                  <td class="week-cell">7</td>
                   <td>
                     <div class="topic-title">Environmental Analysis: Energy &amp; Emissions</div>
                     <div class="topic-line"><strong>Theory:</strong> How operations affect energy/emissions, ICE vs EV basics, emission modelling concepts, output meaning/limits</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Enable energy/emissions outputs; compare ICE vs EV scenarios; evaluate how signals/congestion affect results</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>8</td>
+                  <td class="week-cell">8</td>
                   <td>
                     <div class="topic-title">Midterm (Paper-Based): Model Reasoning</div>
-                    <div class="topic-line"><strong>In-class:</strong> Interpret printed outputs (counts, speeds, travel times, queue plots, snapshots) to:</div>
-                    <ul class="topic-list">
-                      <li>Diagnose likely causes of mismatch</li>
-                      <li>Propose calibration actions (what to change and why)</li>
-                      <li>Justify validation decisions (what evidence is sufficient)</li>
-                    </ul>
+                    <div class="topic-line">
+                      <strong>In-class:</strong> Interpret printed outputs (counts, speeds, travel times, queue plots, snapshots) to:
+                      <ul>
+                        <li>Diagnose likely causes of mismatch</li>
+                        <li>Propose calibration actions (what to change and why)</li>
+                        <li>Justify validation decisions (what evidence is sufficient)</li>
+                      </ul>
+                    </div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Midterm Packet (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Reference Pack (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Midterm Packet (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Reference Pack (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>9</td>
+                  <td class="week-cell">9</td>
                   <td>
                     <div class="topic-title">Intelligent Transportation Systems in Simulation</div>
                     <div class="topic-line"><strong>Theory:</strong> ITS overview, sensing/data collection, examples and use cases, AI in ITS, smart signal control concepts</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Implement a basic data-collection workflow; prototype a smart control concept in the simulation</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>10</td>
+                  <td class="week-cell">10</td>
                   <td>
                     <div class="topic-title">3D Traffic Simulation I</div>
                     <div class="topic-line"><strong>Theory:</strong> Why 3D visualization, core concepts, game engines for planning</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Launch a game engine scene; build a basic 3D environment; visualize the simulated traffic in 3D</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>11</td>
+                  <td class="week-cell">11</td>
                   <td>
                     <div class="topic-title">3D Traffic Simulation II: VR Applications</div>
                     <div class="topic-line"><strong>Theory:</strong> VR fundamentals, VR in planning, driver simulators, future directions</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Build a more complex VR traffic scenario and run a demo</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
                 <tr>
-                  <td>12</td>
+                  <td class="week-cell">12</td>
                   <td>
                     <div class="topic-title">Portfolio &amp; Communication</div>
                     <div class="topic-line"><strong>Theory:</strong> Communicating results to decision-makers (story + evidence + recommendation)</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Final project page + demo video + screenshots + KPI tables/plots</div>
                   </td>
-                  <td class="material-links">
-                    <a class="material-pill me-2" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                    <a class="material-pill" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
-                    <div class="material-muted mt-1">Add links when ready</div>
+                  <td class="materials-col">
+                    <div class="materials-stack">
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                    </div>
                   </td>
                 </tr>
 
