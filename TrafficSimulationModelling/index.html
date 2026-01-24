@@ -147,19 +147,6 @@
         text-align: center;
         white-space: nowrap;
       }
-      .week-badge{
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 999px;
-        font-weight: 800;
-        color: #111;
-        background: #fff;
-        border: 1px solid rgba(109,40,210,0.30);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-      }
 
       .topic-title{
         font-weight: 700;
@@ -180,20 +167,22 @@
       }
       .topic-line li{ margin-bottom: 4px; }
 
-      .materials-col{
-        width: 240px;      /* slightly tighter than 260 */
-        white-space: nowrap;
-      }
-      
+      .materials-col{ width: 260px; }
       .materials-stack{
         display: flex;
         flex-direction: column;
         gap: 10px;
-        align-items: flex-end;  /* aligns pills nicely */
+        align-items: flex-start;
       }
-      
-      .topics-table td.materials-col{
-        text-align: right;
+      .materials-stack .btn{
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        width: fit-content;
+      }
+
+      .topics-table tbody tr:hover{
+        background: rgba(109,40,210,0.04);
       }
 
       @media (max-width: 768px){
@@ -214,13 +203,6 @@
         margin-bottom: 0.25rem;
       }
       .footer-link:hover{ color: #0d6efd; }
-      .topics-table thead th{
-          position: sticky;
-          top: 0;
-          z-index: 2;
-          background: #fff;
-          box-shadow: 0 1px 0 rgba(0,0,0,0.08);
-        }
     </style>
   </head>
 
@@ -424,7 +406,7 @@
               <tbody>
                 <!-- NOTE: Replace # with your real PDF URLs -->
                 <tr>
-                  <td class="week-cell"><span class="week-badge">1</span></td>
+                  <td class="week-cell">1</td>
                   <td>
                     <div class="topic-title">Introduction to Traffic Simulation</div>
                     <div class="topic-line"><strong>Theory:</strong> What traffic simulation is, why it’s used, examples of planning studies, course overview</div>
