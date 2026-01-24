@@ -191,6 +191,23 @@
         .materials-stack .btn{ width: 100%; text-align: center; }
       }
 
+      /* Course Evaluation mini-cards */
+      .eval-item{
+        border: 1px solid rgba(0,0,0,0.06);
+        border-radius: 12px;
+        padding: 12px;
+        background: rgba(0,0,0,0.01);
+      }
+      .eval-title{
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+      .eval-meta{
+        color: #6c757d;
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
       /* Footer */
       footer{
         border-top: 1px solid #ddd;
@@ -315,9 +332,10 @@
             How the course is structured and what it prepares you to do.
           </p>
 
+          <!-- Make these two columns identical width (like Learning Goals vs Assessment) -->
           <div class="row g-4">
-            <!-- Left: Overview text -->
-            <div class="col-lg-8">
+            <!-- Left: Course overview -->
+            <div class="col-md-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h3 class="h5 mb-3">Course overview</h3>
@@ -334,23 +352,54 @@
               </div>
             </div>
 
-            <!-- Right: YouTube companion series -->
-            <div class="col-lg-4">
+            <!-- Right: Course Evaluation -->
+            <div class="col-md-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
-                  <h3 class="h5 mb-3">YouTube companion series</h3>
-                  <ul class="mb-0">
-                    <li>Views (last 28 days): ___</li>
-                    <li>Watch time: ___ hours</li>
-                    <li>Avg view duration: ___</li>
-                    <li>Top modules: Week __, Week __</li>
-                  </ul>
-                  <!-- Optional: uncomment if you want a button -->
-                  <!--
-                  <div class="mt-3 d-grid">
-                    <a class="btn btn-sm btn-outline-primary" href="https://www.youtube.com/@RoadwayVR" target="_blank" rel="noopener noreferrer">Open channel</a>
+                  <h3 class="h5 mb-3">Course Evaluation</h3>
+
+                  <!-- 1) Udemy -->
+                  <div class="eval-item mb-3">
+                    <div class="eval-title">1) Course on Udemy</div>
+                    <div class="eval-meta">
+                      Rating: <strong>4.5</strong> / 5 · <strong>31</strong> ratings
+                    </div>
+                    <div class="mt-2">
+                      <!-- Replace # with your Udemy link -->
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">View on Udemy</a>
+                    </div>
                   </div>
-                  -->
+
+                  <!-- 2) YouTube -->
+                  <div class="eval-item mb-3">
+                    <div class="eval-title">2) Course on YouTube</div>
+                    <div class="eval-meta">
+                      Views (last 28 days): ___<br>
+                      Watch time: ___ hours<br>
+                      Subscribers: ___
+                    </div>
+                    <div class="mt-2 d-flex flex-wrap gap-2">
+                      <a class="btn btn-sm btn-outline-primary" href="https://www.youtube.com/@RoadwayVR" target="_blank" rel="noopener noreferrer">Subscribe</a>
+                      <a class="btn btn-sm btn-outline-primary" href="https://www.youtube.com/@RoadwayVR/videos" target="_blank" rel="noopener noreferrer">Watch videos</a>
+                    </div>
+                  </div>
+
+                  <!-- 3) GitHub -->
+                  <div class="eval-item">
+                    <div class="eval-title">3) Course on GitHub</div>
+                    <div class="eval-meta">
+                      Stars: ___<br>
+                      Repo: SUMO Traffic Simulator Tutorial
+                    </div>
+                    <div class="mt-2">
+                      <a class="btn btn-sm btn-outline-primary"
+                         href="https://github.com/RoadwayVR/SUMO-Traffic-Simulator-Tutorial"
+                         target="_blank" rel="noopener noreferrer">
+                        View repository
+                      </a>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -573,7 +622,7 @@
                   <td>
                     <div class="topic-title">3D Traffic Simulation I</div>
                     <div class="topic-line"><strong>Theory:</strong> Why 3D visualization, core concepts, game engines for planning</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Launch a game engine scene; build a basic 3D environment; visualize the simulated traffic in the 3D</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Launch a game engine scene; build a basic 3D environment; visualize the simulated traffic in 3D</div>
                   </td>
                   <td class="materials-col">
                     <div class="materials-stack">
