@@ -211,19 +211,10 @@
       .topics-table td{ vertical-align: top; }
       .topics-table td, .topics-table th{ padding: 14px 16px; }
 
-      /* Force a wider Materials column (this moves it left and gives room for longer labels) */
-      .topics-table{
-        width: 100%;
-        table-layout: fixed;
-      }
-      .topics-table th:nth-child(1),
-      .topics-table td:nth-child(1){
-        width: 70px;
-      }
-      .topics-table th:nth-child(3),
-      .topics-table td:nth-child(3){
-        width: 300px; /* <-- increase/decrease this to shift the Materials column left/right */
-      }
+      /* Wider Materials column (lets you show longer labels like Video Tutorial 10) */
+      .topics-table{ width: 100%; table-layout: fixed; }
+      .topics-table th:nth-child(1), .topics-table td:nth-child(1){ width: 70px; }
+      .topics-table th:nth-child(3), .topics-table td:nth-child(3){ width: 360px; }
 
       .topics-table .week-cell{
         font-weight: 700;
@@ -251,7 +242,7 @@
         margin: 6px 0 0;
         padding-left: 1.1rem;
       }
-      .topic-line li{ margin-bottom: 4px; }
+      .topic-line li{ margin-bottom: 6px; }
 
       .materials-stack{
         display: flex;
@@ -264,8 +255,8 @@
         padding: 6px 10px;
         font-size: 0.9rem;
         width: fit-content;
-        min-width: 210px;           /* room for "Video Tutorial 12" */
-        white-space: nowrap;        /* keep label in one line */
+        min-width: 220px;
+        white-space: nowrap;
       }
 
       .topics-table tbody tr:hover{
@@ -273,15 +264,9 @@
       }
 
       @media (max-width: 768px){
-        .topics-table{
-          table-layout: auto;
-        }
+        .topics-table{ table-layout: auto; }
         .materials-stack{ align-items: stretch; }
-        .materials-stack .btn{
-          width: 100%;
-          text-align: center;
-          min-width: 0;
-        }
+        .materials-stack .btn{ width: 100%; text-align: center; min-width: 0; }
         .eval-cta{ width: 100%; }
         .eval-cta .btn{ width: 100%; text-align: center; }
       }
@@ -364,6 +349,7 @@
       <div class="container">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
+
             <div class="mb-2">
               <span class="course-code-pill">RWR4015</span>
             </div>
@@ -605,8 +591,7 @@
         <div class="container">
           <h2 class="section-title h3 mb-3">Topics</h2>
           <p class="text-muted mb-4">
-            This 12-week course follows a consistent weekly structure: a lecture (concepts and planning context), a hands-on lab (SUMO workflows),
-            and a video tutorial to support practice outside class. Use the Materials links to access each week’s lecture slide, hands-on slide, and video tutorial.
+            This 12-week course is organized around weekly lecture concepts and hands-on labs. Each week includes a lecture slide, a hands-on slide, and one or more video tutorials.
           </p>
 
           <div class="table-responsive card card-soft">
@@ -619,12 +604,14 @@
                 </tr>
               </thead>
               <tbody>
+
+                <!-- Week 1 -->
                 <tr>
                   <td class="week-cell">1</td>
                   <td>
                     <div class="topic-title">Introduction to Traffic Simulation</div>
-                    <div class="topic-line"><strong>Lecture:</strong> What is traffic simulation; the purpose of traffic simulation; examples of traffic simulation studies; course description</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Install Simulation of Urban Mobility (SUMO); SUMO files and user interface; create a simple network with car traffic demand; add opposite traffic flow; intersections: unsignalized/signalized</div>
+                    <div class="topic-line"><strong>Lecture:</strong> What is Traffic Simulation?; The Purpose of Traffic Simulation; Examples of Traffic Simulation Studies; Course Description</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Install Simulation of Urban Mobility (SUMO); Set Up SUMO Environment Variables; Install Notepad++; SUMO Files and User Interface; Create a Simple Network with Car Traffic Demand; Add Opposite Traffic Flow</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -635,12 +622,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 2 -->
                 <tr>
                   <td class="week-cell">2</td>
                   <td>
                     <div class="topic-title">Fundamentals of Traffic Simulation</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Road network development; vehicle characteristics; vehicle dynamics; car-following model; lane-changing model; traffic theory; fundamental diagram (flow, density, speed)</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> SUMO user interfaces; import GIS maps; create road networks and add traffic volume; SUMO vehicle types; explore car-following and lane-changing models for diverse vehicles (cars, bikes, scooters, etc.)</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Road Network Development; Vehicles Characteristics; Vehicle Dynamics; Car Following and Lane Changing Models; Traffic Theory; Fundamental Diagram (Flow, Density, Speed)</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Road Network Development in Traffic Simulation; Car Following and Lane Changing Models in Traffic Simulation</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -651,12 +639,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 3 -->
                 <tr>
                   <td class="week-cell">3</td>
                   <td>
-                    <div class="topic-title">Traffic Signal Planning in Simulation</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Signalized and unsignalized intersections; signal elements (phases, cycle, lost time); fixed-time vs. actuated; ring-barrier (conceptual); basic signal optimization concepts</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Implement a simple signalized intersection in SUMO; define phases/program; NEMA phases; implement different types of traffic signal timing (fixed-time vs. actuated)</div>
+                    <div class="topic-title">Network Modelling with GIS</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Introduction to GIS; GIS in Planning Applications; Relationship between GIS and Simulation; What Network Details Matter</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Geographic Information System (GIS); GIS Software; Download and Installing QGIS Software - Open Source and Free; Map Services; Imagery Map and Georeferencing; Create a Road Network on Top of GIS; Import a Road Network from OpenStreetMap into SUMO</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -667,12 +656,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 4 -->
                 <tr>
                   <td class="week-cell">4</td>
                   <td>
-                    <div class="topic-title">Network Modelling with GIS and OSM</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Introduction to GIS; GIS applications; relationship between GIS and simulation; what network details matter</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Introduction to QGIS; download GIS maps in QGIS; build/import a network from OSM/GIS into SUMO; create a road network on top of GIS</div>
+                    <div class="topic-title">Traffic Signal Planning in Simulation</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Signalized and Unsignalized Intersections; Introduction to Traffic Signal Planning; Traffic Signal Planning Case Studies; Signal Elements (phases, cycle, lost time); Fixed-time vs. Actuated; Ring-barrier (conceptual); Basic Signal Optimization Concepts</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Intersection - Unsignalized; Intersection - Signalized</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -683,12 +673,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 5 -->
                 <tr>
                   <td class="week-cell">5</td>
                   <td>
                     <div class="topic-title">Demand Modelling and Route Assignment</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Fundamentals of simulation calibration; importance of calibration in planning; traffic movement/volume/speed</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Create routes/flows; load traffic volumes; verify traffic movements and speeds</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Elements of Demand Modelling and Route Assignment; Traffic Movement Calibration; Traffic Volume Calibration; Traffic Speed Calibration</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Implementation of Traffic Movement/Volume Speed Calibration in Simulation</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -699,12 +690,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 6 -->
                 <tr>
                   <td class="week-cell">6</td>
                   <td>
-                    <div class="topic-title">Mixed Traffic Planning: AVs and Manual Vehicles</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Fundamentals of connected and autonomous vehicles (CAVs); automation levels; mixed-traffic impacts on planning; simulation tools for CAVs</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Create vehicle classes (manual vs. AV) with different behavior parameters; test different AV penetration rates (0%, 25%, 50%); compare different design alternatives</div>
+                    <div class="topic-title">Mixed Traffic Planning: Autonomous and Human-Driven Vehicles</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Fundamentals of Connected and Autonomous Vehicles (CAVs); Automation Levels; Simulation Tools for CAVs; Impact of Mixed Traffic Planning</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Develop Mixed Traffic Planning for AVs and Human-Driven Vehicles in Simulation; Analyze Impacts of Different AV Penetration Rates on Traffic Performance</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -715,12 +707,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 7 -->
                 <tr>
                   <td class="week-cell">7</td>
                   <td>
-                    <div class="topic-title">Environmental Analysis in Simulation (Energy, Emissions, EVs)</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Fundamentals of energy and emissions; internal combustion engine vehicles and electric vehicles; how traffic operations affect emissions/energy; emission factors vs. instantaneous models; what outputs mean/limitations</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Enable emissions/energy outputs in SUMO; compare ICE vs. EV scenarios; evaluate how signal timing/congestion changes emissions and energy use</div>
+                    <div class="topic-title">Environmental Analysis (Energy, Emissions, Electric Vehicles)</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Fundamental of Energy and Emission (Combustion Engine Vehicle and Electric Vehicles); Energy and Emission Definition and Impact of Different Vehicle Types; Internal Combustion Engine Vehicle and Electric Vehicle; SUMO Vehicle Supports; Energy Consumption and Emission Models</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Energy Consumption and Emission Model (HBEFA Model); Emission Models in Simulation; Environmental Analysis in Simulation; Develop Mixed Traffic Planning Strategies of EVs and ICE in Simulation; Analyze Environmental Impacts of Different Scenarios</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -731,16 +724,21 @@
                   </td>
                 </tr>
 
+                <!-- Week 8 -->
                 <tr>
                   <td class="week-cell">8</td>
                   <td>
                     <div class="topic-title">Midterm (Paper-Based): Model Reasoning</div>
                     <div class="topic-line">
-                      <strong>In-class (no PC):</strong> Students interpret printed outputs (counts, speeds, travel times, queue plots, SUMO snapshots, mismatch tables) and:
+                      <strong>In-class assessment (no computer):</strong> Students interpret printed outputs (traffic counts, speeds, travel times, queue plots, SUMO snapshots, signal timing diagrams, network diagrams, emission reports, AV penetration scenarios) and:
                       <ul>
-                        <li>diagnose likely causes of mismatch (demand, speeds, signal timing, behavior parameters)</li>
-                        <li>propose calibration actions (what to change and why)</li>
-                        <li>justify validation decisions (what evidence is sufficient)</li>
+                        <li><strong>Diagnose</strong> likely causes of simulation-reality mismatches (demand, speed parameters, signal timing, car-following/lane-changing behavior, network geometry)</li>
+                        <li><strong>Propose</strong> calibration strategies with justification (what to adjust and why)</li>
+                        <li><strong>Evaluate</strong> model quality and validation evidence</li>
+                        <li><strong>Apply</strong> traffic theory to explain simulation behaviors (flow-density relationships, capacity, queuing)</li>
+                        <li><strong>Analyze</strong> mixed traffic scenarios (compare impacts of different AV penetration rates on traffic performance)</li>
+                        <li><strong>Evaluate</strong> environmental impacts (assess energy consumption and emissions across different vehicle mix scenarios)</li>
+                        <li><strong>Compare</strong> design alternatives based on simulation outputs (intersections, signal timing, network changes, EV/ICE planning strategies)</li>
                       </ul>
                     </div>
                   </td>
@@ -753,12 +751,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 9 -->
                 <tr>
                   <td class="week-cell">9</td>
                   <td>
                     <div class="topic-title">Artificial Intelligence in Intelligent Transportation Systems</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Concept of intelligent transportation systems (ITS), intelligent traffic data collection systems; ITS examples and purposes; artificial intelligence and ITS; smart control of traffic signals</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Implement an intelligent traffic data collection system in SUMO; implement a smart traffic signal; design an AI-enabled ITS system</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Reviewing Intelligent Transportation Systems case studies and explain concept of ITS; three phases of detection; algorithms and decisions in ITS; explain application of artificial intelligence in ITS</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Fundamental of machine learning algorithms; fundamental of reinforcement learning algorithms; implement an intelligent traffic signal; analyze the performance of an intelligent traffic signal</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -769,12 +768,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 10 -->
                 <tr>
                   <td class="week-cell">10</td>
                   <td>
                     <div class="topic-title">3D Simulation in Planning I</div>
-                    <div class="topic-line"><strong>Lecture:</strong> 3D visualization in planning; 3D visualization use cases; 3D simulation with existing game engines; Unity game engine</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Install Sumo2Unity tool; install Unity game engine; visualize a single lane road with one unsignalized intersection</div>
+                    <div class="topic-line"><strong>Lecture:</strong> 3D Visualization in Planning; 3D Visualization Case Studies; 3D Simulation with Existing Game Engines; Unity Game Engine</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Install Sumo2Unity Tool; Install Unity Game Engine; Visualize a Single Lane Road with one Unsignalized Intersection</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -785,12 +785,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 11 -->
                 <tr>
                   <td class="week-cell">11</td>
                   <td>
                     <div class="topic-title">3D Simulation in Planning II</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Visualize a multi lane road with signalized intersection</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Visualize different modes of transportation (bicycle, scooters) and different traffic density</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Multi Lane Road with Signalized Intersection</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Visualize Different Modes of Transportation (Bicycle, Scooters)</div>
                   </td>
                   <td>
                     <div class="materials-stack">
@@ -801,12 +802,13 @@
                   </td>
                 </tr>
 
+                <!-- Week 12 -->
                 <tr>
                   <td class="week-cell">12</td>
                   <td>
-                    <div class="topic-title">Portfolio and Communication</div>
-                    <div class="topic-line"><strong>Lecture:</strong> Develop final project website + demo video + screenshots + tables/plots</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Final project presentations</div>
+                    <div class="topic-title">Final Project Report and Presentation</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Writing A Final Project Report Including Analysis Results through Tables and Plots; Discuss Findings</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Final Project Presentations</div>
                   </td>
                   <td>
                     <div class="materials-stack">
