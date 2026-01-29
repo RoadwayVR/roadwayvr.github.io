@@ -39,11 +39,10 @@
       .hero{
         background-image:
           linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
-          url("/TrafficSimulationforPlanningApplications/assets/img/highway-hero.jpg");
+          url("assets/img/highway-hero.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-
         color: rgba(255,255,255,0.92);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -212,8 +211,21 @@
       .topics-table td{ vertical-align: top; }
       .topics-table td, .topics-table th{ padding: 14px 16px; }
 
-      .topics-table .week-cell{
+      /* Force a wider Materials column (this moves it left and gives room for longer labels) */
+      .topics-table{
+        width: 100%;
+        table-layout: fixed;
+      }
+      .topics-table th:nth-child(1),
+      .topics-table td:nth-child(1){
         width: 70px;
+      }
+      .topics-table th:nth-child(3),
+      .topics-table td:nth-child(3){
+        width: 360px; /* <-- increase/decrease this to shift the Materials column left/right */
+      }
+
+      .topics-table .week-cell{
         font-weight: 700;
         color: #111;
         text-align: center;
@@ -230,6 +242,8 @@
         line-height: 1.35;
         color: #6c757d;
         font-size: 0.95rem;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
       }
       .topic-line strong{ color: #111; }
 
@@ -239,7 +253,6 @@
       }
       .topic-line li{ margin-bottom: 4px; }
 
-      .materials-col{ width: 290px; }
       .materials-stack{
         display: flex;
         flex-direction: column;
@@ -251,6 +264,8 @@
         padding: 6px 10px;
         font-size: 0.9rem;
         width: fit-content;
+        min-width: 210px;           /* room for "Video Tutorial 12" */
+        white-space: nowrap;        /* keep label in one line */
       }
 
       .topics-table tbody tr:hover{
@@ -258,9 +273,15 @@
       }
 
       @media (max-width: 768px){
-        .materials-col{ width: auto; }
+        .topics-table{
+          table-layout: auto;
+        }
         .materials-stack{ align-items: stretch; }
-        .materials-stack .btn{ width: 100%; text-align: center; }
+        .materials-stack .btn{
+          width: 100%;
+          text-align: center;
+          min-width: 0;
+        }
         .eval-cta{ width: 100%; }
         .eval-cta .btn{ width: 100%; text-align: center; }
       }
@@ -372,7 +393,7 @@
 
                 <div class="preview-video-wrap">
                   <video class="preview-video" autoplay muted loop playsinline>
-                    <source src="/TrafficSimulationforPlanningApplications/assets/video/preview.mp4" type="video/mp4">
+                    <source src="assets/video/preview.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
                   <div class="preview-badge">Preview</div>
@@ -429,6 +450,7 @@
                   <div class="eval-item">
                     <div class="eval-left">
                       <div class="eval-title">1) Course on Udemy</div>
+
                       <div class="eval-metric">
                         <span class="rating-row" aria-label="Udemy rating summary">
                           <span class="rating-main" aria-label="4.5 out of 5">
@@ -536,6 +558,7 @@
           <p class="text-muted mb-4">What you’ll learn and how you’ll be evaluated.</p>
 
           <div class="row g-4">
+            <!-- Learning Goals -->
             <div class="col-md-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
@@ -553,6 +576,7 @@
               </div>
             </div>
 
+            <!-- Assessment -->
             <div class="col-md-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
@@ -591,11 +615,10 @@
                 <tr>
                   <th class="week-cell">Week</th>
                   <th>Topic (Lecture + Hands-on)</th>
-                  <th class="materials-col">Materials</th>
+                  <th>Materials</th>
                 </tr>
               </thead>
               <tbody>
-                <!-- Week 1 -->
                 <tr>
                   <td class="week-cell">1</td>
                   <td>
@@ -603,16 +626,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> What is traffic simulation; the purpose of traffic simulation; examples of traffic simulation studies; course description</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Install Simulation of Urban Mobility (SUMO); SUMO files and user interface; create a simple network with car traffic demand; add opposite traffic flow; intersections: unsignalized/signalized</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week01-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week01-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week01-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week01-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 1</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 2 -->
                 <tr>
                   <td class="week-cell">2</td>
                   <td>
@@ -620,16 +642,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> Road network development; vehicle characteristics; vehicle dynamics; car-following model; lane-changing model; traffic theory; fundamental diagram (flow, density, speed)</div>
                     <div class="topic-line"><strong>Hands-on:</strong> SUMO user interfaces; import GIS maps; create road networks and add traffic volume; SUMO vehicle types; explore car-following and lane-changing models for diverse vehicles (cars, bikes, scooters, etc.)</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week02-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week02-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week02-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week02-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 2</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 3 -->
                 <tr>
                   <td class="week-cell">3</td>
                   <td>
@@ -637,16 +658,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> Signalized and unsignalized intersections; signal elements (phases, cycle, lost time); fixed-time vs. actuated; ring-barrier (conceptual); basic signal optimization concepts</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Implement a simple signalized intersection in SUMO; define phases/program; NEMA phases; implement different types of traffic signal timing (fixed-time vs. actuated)</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week03-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week03-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week03-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week03-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 3</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 4 -->
                 <tr>
                   <td class="week-cell">4</td>
                   <td>
@@ -654,16 +674,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> Introduction to GIS; GIS applications; relationship between GIS and simulation; what network details matter</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Introduction to QGIS; download GIS maps in QGIS; build/import a network from OSM/GIS into SUMO; create a road network on top of GIS</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week04-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week04-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week04-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week04-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 4</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 5 -->
                 <tr>
                   <td class="week-cell">5</td>
                   <td>
@@ -671,16 +690,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> Fundamentals of simulation calibration; importance of calibration in planning; traffic movement/volume/speed</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Create routes/flows; load traffic volumes; verify traffic movements and speeds</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week05-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week05-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week05-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week05-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 5</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 6 -->
                 <tr>
                   <td class="week-cell">6</td>
                   <td>
@@ -688,16 +706,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> Fundamentals of connected and autonomous vehicles (CAVs); automation levels; mixed-traffic impacts on planning; simulation tools for CAVs</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Create vehicle classes (manual vs. AV) with different behavior parameters; test different AV penetration rates (0%, 25%, 50%); compare different design alternatives</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week06-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week06-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week06-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week06-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 6</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 7 -->
                 <tr>
                   <td class="week-cell">7</td>
                   <td>
@@ -705,16 +722,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> Fundamentals of energy and emissions; internal combustion engine vehicles and electric vehicles; how traffic operations affect emissions/energy; emission factors vs. instantaneous models; what outputs mean/limitations</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Enable emissions/energy outputs in SUMO; compare ICE vs. EV scenarios; evaluate how signal timing/congestion changes emissions and energy use</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week07-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week07-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week07-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week07-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 7</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 8 -->
                 <tr>
                   <td class="week-cell">8</td>
                   <td>
@@ -728,16 +744,15 @@
                       </ul>
                     </div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week08-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week08-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week08-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week08-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 8</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 9 -->
                 <tr>
                   <td class="week-cell">9</td>
                   <td>
@@ -745,16 +760,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> Concept of intelligent transportation systems (ITS), intelligent traffic data collection systems; ITS examples and purposes; artificial intelligence and ITS; smart control of traffic signals</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Implement an intelligent traffic data collection system in SUMO; implement a smart traffic signal; design an AI-enabled ITS system</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week09-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week09-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week09-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week09-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 9</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 10 -->
                 <tr>
                   <td class="week-cell">10</td>
                   <td>
@@ -762,16 +776,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> 3D visualization in planning; 3D visualization use cases; 3D simulation with existing game engines; Unity game engine</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Install Sumo2Unity tool; install Unity game engine; visualize a single lane road with one unsignalized intersection</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week10-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week10-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week10-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week10-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 10</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 11 -->
                 <tr>
                   <td class="week-cell">11</td>
                   <td>
@@ -779,16 +792,15 @@
                     <div class="topic-line"><strong>Lecture:</strong> Visualize a multi lane road with signalized intersection</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Visualize different modes of transportation (bicycle, scooters) and different traffic density</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week11-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week11-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week11-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week11-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 11</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- Week 12 -->
                 <tr>
                   <td class="week-cell">12</td>
                   <td>
@@ -796,11 +808,11 @@
                     <div class="topic-line"><strong>Lecture:</strong> Develop final project website + demo video + screenshots + tables/plots</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Final project presentations</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week12-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="/TrafficSimulationforPlanningApplications/assets/slide/RWR4015-Week12-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week12-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slides/RWR4015-Week12-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Video Tutorial 12</a>
                     </div>
                   </td>
                 </tr>
@@ -1038,9 +1050,7 @@
               : el.textContent || "90";
             el.textContent = stars;
           })
-          .catch(() => {
-            // Keep the default value if fetch fails.
-          });
+          .catch(() => {});
       })();
     </script>
   </body>
