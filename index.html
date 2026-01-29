@@ -142,6 +142,23 @@
         border-color: #6D28D2 !important;
       }
 
+      /* Disable links (for "Coming soon") */
+      .disabled-link{
+        pointer-events: none;      /* no click */
+        opacity: 0.55;             /* looks disabled */
+        cursor: not-allowed;       /* no hand cursor */
+      }
+      /* prevent hover style changes on disabled buttons */
+      a.btn.btn-primary.disabled-link:hover{
+        background-color: #6D28D2 !important;
+        border-color: #6D28D2 !important;
+      }
+      a.btn.btn-outline-primary.disabled-link:hover{
+        color: #6D28D2 !important;
+        background: rgba(109,40,210,0.06) !important;
+        border-color: rgba(109,40,210,0.45) !important;
+      }
+
       /* Help strip */
       .help-strip{
         border-radius: 16px;
@@ -197,7 +214,15 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link active" href="#top">Course Hub</a></li>
             <li class="nav-item"><a class="nav-link" href="/TrafficSimulationforPlanningApplications/">Traffic Simulation</a></li>
-            <li class="nav-item"><a class="nav-link" href="/DigitalTwinsforSmartCities/">Digital Twins</a></li>
+
+            <!-- Digital Twins NAV disabled for now -->
+            <li class="nav-item">
+              <a class="nav-link disabled-link" href="#"
+                 aria-disabled="true" tabindex="-1" title="Coming soon">
+                Digital Twins
+              </a>
+            </li>
+
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item">
               <a class="nav-link" href="https://www.youtube.com/@RoadwayVR" target="_blank" rel="noopener noreferrer">
@@ -298,6 +323,7 @@
                     <span class="badge badge-pill rounded-pill px-3 py-2">Digital Twins</span>
                     <span class="badge badge-pill rounded-pill px-3 py-2">Smart Cities</span>
                     <span class="badge badge-pill rounded-pill px-3 py-2">Decision Support</span>
+                    <span class="badge rounded-pill px-3 py-2 text-bg-secondary">Coming soon</span>
                   </div>
 
                   <div class="course-title">Digital Twins for Smart Cities</div>
@@ -312,11 +338,14 @@
                     <li>User layer: dashboards, storytelling, and demo-ready project delivery</li>
                   </ul>
 
+                  <!-- Disabled buttons for now -->
                   <div class="d-flex flex-wrap gap-2 mt-4">
-                    <a class="btn btn-primary" href="/DigitalTwinsforSmartCities/">
+                    <a class="btn btn-primary disabled-link" href="#"
+                       aria-disabled="true" tabindex="-1" title="Coming soon">
                       Enter Course
                     </a>
-                    <a class="btn btn-outline-primary" href="/DigitalTwinsforSmartCities/#outline">
+                    <a class="btn btn-outline-primary disabled-link" href="#"
+                       aria-disabled="true" tabindex="-1" title="Coming soon">
                       View Outline
                     </a>
                   </div>
@@ -386,9 +415,18 @@
 
           <div class="col-md-4">
             <div class="footer-title">Courses</div>
-            <a href="/TrafficSimulationforPlanningApplications/" class="footer-link">Traffic Simulation for Planning Applications (RWR4015)</a>
-            <a href="/DigitalTwinsforSmartCities/" class="footer-link">Digital Twins for Smart Cities (RWR4013)</a>
-            <a href="https://discord.gg/8kPaECVzJY" target="_blank" rel="noopener noreferrer" class="footer-link">Discord Community</a>
+            <a href="/TrafficSimulationforPlanningApplications/" class="footer-link">
+              Traffic Simulation for Planning Applications (RWR4015)
+            </a>
+
+            <!-- Digital Twins FOOTER disabled for now -->
+            <a href="#" class="footer-link disabled-link" aria-disabled="true" tabindex="-1" title="Coming soon">
+              Digital Twins for Smart Cities (RWR4013)
+            </a>
+
+            <a href="https://discord.gg/8kPaECVzJY" target="_blank" rel="noopener noreferrer" class="footer-link">
+              Discord Community
+            </a>
           </div>
 
           <div class="col-md-4">
