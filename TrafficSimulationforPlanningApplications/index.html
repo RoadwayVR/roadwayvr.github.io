@@ -140,13 +140,20 @@
 
       /* ===== Desktop-only justified text (only where you add the class) ===== */
       .justify-desktop{
-        text-align: left; /* default (mobile + all) */
+        text-align: left;
       }
-      @media (min-width: 992px){ /* Bootstrap lg and up = desktop */
+      
+      /* only justify when the column is wide enough */
+      @media (min-width: 1200px){  /* try 1200 or even 1400 */
         .justify-desktop{
           text-align: justify;
           text-justify: inter-word;
+      
           hyphens: auto;
+          -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+      
+          text-wrap: pretty; /* nicer line breaks (modern browsers) */
         }
       }
 
