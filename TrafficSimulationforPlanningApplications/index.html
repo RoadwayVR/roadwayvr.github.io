@@ -159,12 +159,21 @@
       .eval-cta{
         flex: 0 0 auto;
         margin-left: auto;
+
+        width: 200px;      /* NEW: identical button width */
       }
       .eval-cta .btn{
         border-radius: 999px;
         padding: 6px 12px;
         font-size: 0.9rem;
         white-space: nowrap;
+        width: 100%;       /* NEW: fill the fixed width */
+        text-align: center;
+      }
+      /* Optional: mobile */
+      @media (max-width: 768px){
+        .eval-cta{ width: 100%; }
+        .eval-cta .btn{ width: 100%; text-align: center; }
       }
 
       /* Udemy-like rating row */
