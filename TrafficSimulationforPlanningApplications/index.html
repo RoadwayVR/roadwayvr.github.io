@@ -138,6 +138,18 @@
         border-color: #6D28D2 !important;
       }
 
+      /* ===== Desktop-only justified text (only where you add the class) ===== */
+      .justify-desktop{
+        text-align: left; /* default (mobile + all) */
+      }
+      @media (min-width: 992px){ /* Bootstrap lg and up = desktop */
+        .justify-desktop{
+          text-align: justify;
+          text-justify: inter-word;
+          hyphens: auto;
+        }
+      }
+
       /* ===== Course Evaluation (right card) ===== */
       .eval-item{
         display: flex;
@@ -159,18 +171,16 @@
       .eval-cta{
         flex: 0 0 auto;
         margin-left: auto;
-
-        width: 200px;      /* NEW: identical button width */
+        width: 200px;
       }
       .eval-cta .btn{
         border-radius: 999px;
         padding: 6px 12px;
         font-size: 0.9rem;
         white-space: nowrap;
-        width: 100%;       /* NEW: fill the fixed width */
+        width: 100%;
         text-align: center;
       }
-      /* Optional: mobile */
       @media (max-width: 768px){
         .eval-cta{ width: 100%; }
         .eval-cta .btn{ width: 100%; text-align: center; }
@@ -224,7 +234,6 @@
       .topics-table td{ vertical-align: top; }
       .topics-table td, .topics-table th{ padding: 14px 16px; }
 
-      /* Wider Materials column (lets you show longer labels like Video Tutorial 10) */
       .topics-table{ width: 100%; table-layout: fixed; }
       .topics-table th:nth-child(1), .topics-table td:nth-child(1){ width: 70px; }
       .topics-table th:nth-child(3), .topics-table td:nth-child(3){ width: 300px; }
@@ -310,11 +319,6 @@
         margin-bottom: 0.25rem;
       }
       .footer-link:hover{ color: #0d6efd; }
-      .justify-text{
-        text-align: justify;
-        text-justify: inter-word;          /* optional */
-        hyphens: auto;                      /* optional (needs lang="en") */
-      }
     </style>
   </head>
 
@@ -407,7 +411,7 @@
                 <p class="small text-muted mt-3 mb-0">
                   Course workflow preview: Use Traffic Simulation for Urban Planning
                 </p>
-                
+
                 <div class="mt-3 d-grid">
                   <a class="btn btn-primary" href="#outline">View course outline</a>
                 </div>
@@ -433,14 +437,16 @@
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h3 class="h5 mb-3">Course overview</h3>
-                  <p class="mb-0 text-muted">
-                    This 12-week course combines lecture-based instruction with hands-on workflows to build professional competency in transportation planning. 
-                    Weekly modules introduce key capabilities: traffic simulation fundamentals, network modeling (GIS/OpenStreetMap), demand calibration, signal planning, mixed traffic scenarios (autonomous vehicles), 
-                    environmental analysis (emissions and electric vehicles), intelligent transportation systems, and 3D visualization. Following UDL principles, 
-                    content is delivered through multiple formats including lecture slides, hands-on slides, and video demonstrations, all accessible through the course website for self-paced learning. 
-                    Weekly hands-on sessions build progressively from foundational skills to advanced applications, with each producing concrete deliverables. 
-                    The course has a design project where students conduct a traffic impact study on a real intersection and conduct alternatives analysis with traffic simulation, 3
-                    D visualization, and professional deliverables (technical report and presentation). Students receive support through flexible office hours and an online peer learning community.
+
+                  <!-- JUSTIFIED ON DESKTOP ONLY -->
+                  <p class="mb-0 text-muted justify-desktop">
+                    This 12-week course combines lecture-based instruction with hands-on workflows to build professional competency in transportation planning.
+                    Weekly modules introduce key capabilities: traffic simulation fundamentals, network modeling (GIS/OpenStreetMap), demand calibration, signal planning,
+                    mixed traffic scenarios (autonomous vehicles), environmental analysis (emissions and electric vehicles), intelligent transportation systems, and 3D visualization.
+                    Following UDL principles, content is delivered through multiple formats including lecture slides, hands-on slides, and video demonstrations, all accessible through the course website for self-paced learning.
+                    Weekly hands-on sessions build progressively from foundational skills to advanced applications, with each producing concrete deliverables.
+                    The course has a design project where students conduct a traffic impact study on a real intersection and conduct alternatives analysis with traffic simulation, 3D visualization,
+                    and professional deliverables (technical report and presentation). Students receive support through flexible office hours and an online peer learning community.
                   </p>
                 </div>
               </div>
@@ -544,7 +550,6 @@
                     </div>
                   </div>
 
-
                 </div>
               </div>
             </div>
@@ -565,7 +570,9 @@
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h3 class="h5 mb-3">Course Learning Outcomes</h3>
-                  <ul class="mb-0">
+
+                  <!-- JUSTIFIED ON DESKTOP ONLY -->
+                  <ul class="mb-0 justify-desktop">
                     <li>Develop foundational knowledge in transportation planning</li>
                     <li>Build and calibrate traffic simulation models using professional open-source tools (SUMO, QGIS) alongside industry-standard methods</li>
                     <li>Analyze transportation scenarios including signal timing, mixed traffic (AVs/manual vehicles), and environmental impacts</li>
@@ -624,7 +631,7 @@
                   <td class="week-cell">1</td>
                   <td>
                     <div class="topic-title">Introduction to Traffic Simulation</div>
-                    <div class="topic-line"><strong>Lecture:</strong> What is Traffic Simulation?; The Purpose of Traffic Simulation; Examples of Traffic Simulation Studies; Course Description</div>
+                    <div class="topic-line"><strong>Lecture:</strong> What is Traffic Simulation?; The Purpose of traffic simulation; Examples of Traffic Simulation Studies; Course Description</div>
                     <div class="topic-line"><strong>Hands-on:</strong> Install Simulation of Urban Mobility (SUMO); Set Up SUMO Environment Variables; Install Notepad++; SUMO Files and User Interface; Create a Simple Network with Car Traffic Demand; Add Opposite Traffic Flow</div>
                   </td>
                   <td>
@@ -947,7 +954,7 @@
                 </li>
                 <li>
                   <span class="role-title">Transportation Planner:</span>
-                  Analyzing and planning transportation systems at the intersection of land use, mobility, and policy 
+                  Analyzing and planning transportation systems at the intersection of land use, mobility, and policy
                   - directly supporting municipal planning departments and consulting firms in development review and transportation studies.
                 </li>
                 <li>
