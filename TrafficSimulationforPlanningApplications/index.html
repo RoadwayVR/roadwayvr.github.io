@@ -83,12 +83,12 @@
         border-radius: 12px;
         overflow: hidden;
         border: 1px solid rgba(0,0,0,0.08);
-      
+
         /* NEW: match the video shape (change if your video isn't 16:9) */
         aspect-ratio: 16 / 9;
         background: #000;
       }
-      
+
       .preview-video{
         width: 100%;
         height: 100%;        /* fill the wrapper */
@@ -147,17 +147,17 @@
       .justify-desktop{
         text-align: left;
       }
-      
+
       /* only justify when the column is wide enough */
       @media (min-width: 1200px){  /* try 1200 or even 1400 */
         .justify-desktop{
           text-align: justify;
           text-justify: inter-word;
-      
+
           hyphens: auto;
           -webkit-hyphens: auto;
           -ms-hyphens: auto;
-      
+
           text-wrap: pretty; /* nicer line breaks (modern browsers) */
         }
       }
@@ -424,9 +424,18 @@
                   Course workflow preview: Use Traffic Simulation for Urban Planning
                 </p>
 
-                <div class="mt-3 d-grid">
+                <!-- MODIFIED: add PDF download button -->
+                <div class="mt-3 d-grid gap-2">
                   <a class="btn btn-primary" href="#outline">View course outline</a>
+
+                  <a class="btn btn-outline-primary"
+                     href="assets/course/RWR-4015-Traffic-Simulation.pdf"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    Download course description (PDF)
+                  </a>
                 </div>
+                <!-- /MODIFIED -->
               </div>
             </div>
           </div>
@@ -949,6 +958,32 @@
         </div>
       </section>
 
+      <!-- ADDED: Course Description PDF -->
+      <section id="course-description" class="py-4 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 mb-2">Course Description (PDF)</h2>
+          <p class="text-muted mb-3">
+            Download the official course description document.
+          </p>
+
+          <div class="card card-soft">
+            <div class="card-body d-flex flex-column flex-md-row gap-2 align-items-md-center justify-content-between">
+              <div class="text-muted">
+                RWR-4015-Traffic-Simulation.pdf
+              </div>
+              <a class="btn btn-sm btn-primary"
+                 href="assets/course/RWR-4015-Traffic-Simulation.pdf"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- /ADDED -->
+
       <!-- Career Outcomes -->
       <section id="career" class="py-4 bg-white">
         <div class="container">
@@ -1042,6 +1077,11 @@
             <a href="#office-hours" class="footer-link">Office Hours</a>
             <a href="#optional-materials" class="footer-link">Optional Materials</a>
             <a href="#course-website" class="footer-link">Course Website</a>
+
+            <!-- ADDED -->
+            <a href="#course-description" class="footer-link">Course Description (PDF)</a>
+            <!-- /ADDED -->
+
             <a href="#career" class="footer-link">Career Outcomes</a>
             <a href="#resources" class="footer-link">Resources</a>
           </div>
