@@ -331,6 +331,27 @@
         margin-bottom: 0.25rem;
       }
       .footer-link:hover{ color: #0d6efd; }
+          /* Mobile-only: shrink hero tagline + badges + instructor line */
+    @media (max-width: 576px){
+      .hero .lead{
+        font-size: 1rem;      /* was larger */
+        line-height: 1.25;
+        margin-bottom: .6rem;
+      }
+    
+      .hero .badge-pill{
+        font-size: .72rem;
+        padding: .35rem .6rem !important; /* overrides px-3 py-2 */
+      }
+    
+      .hero .d-flex.gap-2{
+        gap: .35rem !important; /* tighter spacing between badges */
+      }
+    
+      .hero p.small{
+        font-size: .8rem;
+      }
+    }
     </style>
   </head>
 
