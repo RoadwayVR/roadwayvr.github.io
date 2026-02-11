@@ -39,11 +39,10 @@
       .hero{
         background-image:
           linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
-          url("assets/img/highway-hero.jpg"); /* Optional: replace with a DT cover image */
+          url("assets/img/highway-hero.jpg"); /* optional: replace with a digital-twin hero image */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-
         color: rgba(255,255,255,0.92);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -55,6 +54,10 @@
       }
       .hero .lead{
         color: rgba(255,255,255,0.90);
+      }
+      .hero{
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
       }
 
       /* Cards / Typo */
@@ -80,12 +83,15 @@
         border-radius: 12px;
         overflow: hidden;
         border: 1px solid rgba(0,0,0,0.08);
+        aspect-ratio: 16 / 9;
+        background: #000;
       }
+
       .preview-video{
         width: 100%;
-        height: 250px;
+        height: 100%;
         display: block;
-        object-fit: cover;
+        object-fit: contain;
         background: #000;
       }
       .preview-badge{
@@ -135,42 +141,18 @@
         border-color: #6D28D2 !important;
       }
 
-      /* ===== Right card (Platforms / Links) ===== */
-      .eval-item{
-        display: flex;
-        gap: 14px;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-      }
-      .eval-left{ flex: 1 1 320px; }
-      .eval-title{
-        font-weight: 700;
-        margin-bottom: 4px;
-      }
-      .eval-metric{
-        color: #6c757d;
-        font-size: 0.95rem;
-        line-height: 1.35;
-      }
-      .eval-cta{
-        flex: 0 0 auto;
-        margin-left: auto;
-      }
-      .eval-cta .btn{
-        border-radius: 999px;
-        padding: 6px 12px;
-        font-size: 0.9rem;
-        white-space: nowrap;
-      }
+      /* ===== Desktop-only justified text (only where you add the class) ===== */
+      .justify-desktop{ text-align: left; }
 
-      .eval-link{
-        color: #6D28D2;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .eval-link:hover{
-        text-decoration: underline;
+      @media (min-width: 1200px){
+        .justify-desktop{
+          text-align: justify;
+          text-justify: inter-word;
+          hyphens: auto;
+          -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+          text-wrap: pretty;
+        }
       }
 
       /* ===== Topics table polish ===== */
@@ -178,8 +160,11 @@
       .topics-table td{ vertical-align: top; }
       .topics-table td, .topics-table th{ padding: 14px 16px; }
 
+      .topics-table{ width: 100%; table-layout: fixed; }
+      .topics-table th:nth-child(1), .topics-table td:nth-child(1){ width: 70px; }
+      .topics-table th:nth-child(3), .topics-table td:nth-child(3){ width: 300px; }
+
       .topics-table .week-cell{
-        width: 70px;
         font-weight: 700;
         color: #111;
         text-align: center;
@@ -196,6 +181,8 @@
         line-height: 1.35;
         color: #6c757d;
         font-size: 0.95rem;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
       }
       .topic-line strong{ color: #111; }
 
@@ -203,9 +190,8 @@
         margin: 6px 0 0;
         padding-left: 1.1rem;
       }
-      .topic-line li{ margin-bottom: 4px; }
+      .topic-line li{ margin-bottom: 6px; }
 
-      .materials-col{ width: 260px; }
       .materials-stack{
         display: flex;
         flex-direction: column;
@@ -217,6 +203,8 @@
         padding: 6px 10px;
         font-size: 0.9rem;
         width: fit-content;
+        min-width: 220px;
+        white-space: nowrap;
       }
 
       .topics-table tbody tr:hover{
@@ -224,11 +212,9 @@
       }
 
       @media (max-width: 768px){
-        .materials-col{ width: auto; }
+        .topics-table{ table-layout: auto; }
         .materials-stack{ align-items: stretch; }
-        .materials-stack .btn{ width: 100%; text-align: center; }
-        .eval-cta{ width: 100%; }
-        .eval-cta .btn{ width: 100%; text-align: center; }
+        .materials-stack .btn{ width: 100%; text-align: center; min-width: 0; }
       }
 
       /* ===== Career Outcomes list ===== */
@@ -257,6 +243,21 @@
         margin-bottom: 0.25rem;
       }
       .footer-link:hover{ color: #0d6efd; }
+
+      /* Mobile-only: shrink hero tagline + badges + instructor line */
+      @media (max-width: 576px){
+        .hero .lead{
+          font-size: 1rem;
+          line-height: 1.25;
+          margin-bottom: .6rem;
+        }
+        .hero .badge-pill{
+          font-size: .72rem;
+          padding: .35rem .6rem !important;
+        }
+        .hero .d-flex.gap-2{ gap: .35rem !important; }
+        .hero p.small{ font-size: .8rem; }
+      }
     </style>
   </head>
 
@@ -289,10 +290,6 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/TrafficSimulationModelling/">RWR4015</a>
-            </li>
-
-            <li class="nav-item">
               <a class="nav-link" href="#resources">Resources</a>
             </li>
             <li class="nav-item">
@@ -309,7 +306,7 @@
     </nav>
 
     <!-- HERO -->
-    <header class="hero py-5">
+    <header class="hero">
       <div class="container">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
@@ -321,41 +318,48 @@
             <h1 class="display-6 mb-3">Digital Twins for Smart Cities</h1>
 
             <p class="lead mb-3">
-              A practical, project-based workflow to turn real-world video into decision-ready digital twin insights:
-              computer vision → simulation → optimization → decision.
+              Build an end-to-end city digital twin workflow: video → simulation → optimization → decision.
             </p>
 
             <div class="d-flex flex-wrap gap-2">
-              <span class="badge badge-pill rounded-pill px-3 py-2">Computer Vision (YOLO)</span>
-              <span class="badge badge-pill rounded-pill px-3 py-2">SUMO Simulation</span>
-              <span class="badge badge-pill rounded-pill px-3 py-2">KPIs &amp; Optimization</span>
-              <span class="badge badge-pill rounded-pill px-3 py-2">Visualization &amp; Portfolio</span>
+              <span class="badge badge-pill rounded-pill px-3 py-2">Computer Vision</span>
+              <span class="badge badge-pill rounded-pill px-3 py-2">Traffic Simulation</span>
+              <span class="badge badge-pill rounded-pill px-3 py-2">Optimization</span>
+              <span class="badge badge-pill rounded-pill px-3 py-2">KPIs (LOS / Delay / Emissions)</span>
+              <span class="badge badge-pill rounded-pill px-3 py-2">Planning Decisions</span>
             </div>
 
             <p class="mt-3 mb-0 small" style="color: rgba(255,255,255,0.92);">
-              Instructor: Dr. Ahmad Mohammadi · RoadwayVR · Fall 2026
+              Instructor: Dr. Ahmad Mohammadi · RoadwayVR
             </p>
           </div>
 
           <div class="col-lg-5">
-            <div class="card card-soft p-3">
-              <div class="card-body">
+            <div class="card card-soft p-2">
+              <div class="card-body p-2">
                 <h2 class="h6 mb-3">Preview this course</h2>
 
                 <div class="preview-video-wrap">
                   <video class="preview-video" autoplay muted loop playsinline>
-                    <source src="/assets/video/preview.mp4" type="video/mp4">
+                    <source src="assets/video/preview.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
                   <div class="preview-badge">Preview</div>
                 </div>
 
                 <p class="small text-muted mt-3 mb-0">
-                  Course workflow preview: From Computer Vision to Traffic Optimization
+                  Course workflow preview: Data → Model → Connect → Decide
                 </p>
 
-                <div class="mt-3 d-grid">
+                <div class="mt-3 d-grid gap-2">
                   <a class="btn btn-primary" href="#outline">View course outline</a>
+
+                  <a class="btn btn-outline-primary"
+                     href="assets/course/RWR-4013-Digital-Twins-for-Smart-Cities.pdf"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    Download course description (PDF)
+                  </a>
                 </div>
               </div>
             </div>
@@ -367,29 +371,26 @@
 
     <main>
       <!-- COURSE OVERVIEW -->
-      <section id="overview" class="py-5 bg-white">
+      <section id="overview" class="py-4 bg-white">
         <div class="container">
-          <h2 class="section-title h3 mb-3">Course Overview</h2>
-          <p class="text-muted mb-4">
-            A layer-by-layer digital twin workflow (data → model → service → user) with a final public-facing showcase.
+          <h2 class="section-title h3 mb-2">Course Overview</h2>
+          <p class="text-muted mb-3">
+            How the course is structured and what it prepares you to do.
           </p>
 
-          <!-- Two identical-width cards -->
-          <div class="row g-4">
+          <div class="row g-3">
             <div class="col-lg-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
-                  <h3 class="h5 mb-3">How the course is structured</h3>
-                  <p class="mb-0 text-muted">
-                    This course introduces digital twins for smart cities through a practical, project-based workflow aligned with
-                    four common layers/phases of a city digital twin:
-                    <br><br>
-                    <strong>1) Data Layer (Computer Vision):</strong> collect field traffic data from video (detection → tracking → counts/speeds).<br>
-                    <strong>2) Model Layer (Simulation):</strong> build a digital network and traffic model in SUMO (network → demand → signals).<br>
-                    <strong>3) Service Layer (Optimization):</strong> evaluate system performance using KPIs and test improvement strategies (e.g., timing changes, scenario comparison).<br>
-                    <strong>4) User Layer (Decision &amp; Communication):</strong> communicate findings through clear visualizations and a public-facing project showcase (demo video + website/portfolio).
-                    <br><br>
-                    In the final weeks, students assemble selected components into a mini alternatives analysis and present results through a short demo video and a public project page.
+                  <h3 class="h5 mb-3">Course overview</h3>
+
+                  <p class="mb-0 text-muted justify-desktop">
+                    This 12-week course introduces digital twins for smart cities through a practical, project-based workflow aligned with four common layers/phases of a city digital twin:
+                    (1) <strong>Data Layer (Computer Vision)</strong> to collect field traffic data from video (detection → tracking → counts/speeds),
+                    (2) <strong>Model Layer (Simulation)</strong> to build a digital network and traffic model in SUMO (network → demand → signals),
+                    (3) <strong>Connection Layer (Optimization)</strong> to evaluate system performance using KPIs (delay, emissions, level of service) and test scenarios (e.g., signal timings),
+                    and (4) <strong>Service Layer (Decision)</strong> to select the most effective scenario and communicate findings through a written report, a presentation,
+                    and a project showcase (demo video + website).
                   </p>
                 </div>
               </div>
@@ -398,64 +399,20 @@
             <div class="col-lg-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
-                  <h3 class="h5 mb-3">Course Platforms</h3>
+                  <h3 class="h5 mb-3">Teaching Philosophy (UDL)</h3>
 
-                  <div class="eval-item">
-                    <div class="eval-left">
-                      <div class="eval-title">1) Course Website</div>
-                      <div class="eval-metric">
-                        Latest outline, updates, and public materials.
-                      </div>
-                    </div>
-                    <div class="eval-cta">
-                      <a class="btn btn-sm btn-outline-primary"
-                         href="https://roadwayvr.github.io/DigitalTwinsforSmartCities/"
-                         target="_blank" rel="noopener noreferrer">
-                        Open Website
-                      </a>
-                    </div>
-                  </div>
-
-                  <hr class="my-3">
-
-                  <div class="eval-item">
-                    <div class="eval-left">
-                      <div class="eval-title">2) RoadwayVR YouTube</div>
-                      <div class="eval-metric">
-                        Companion videos, demos, and walkthroughs.
-                      </div>
-                    </div>
-                    <div class="eval-cta">
-                      <a class="btn btn-sm btn-outline-primary"
-                         href="https://www.youtube.com/@RoadwayVR"
-                         target="_blank" rel="noopener noreferrer">
-                        View on YouTube
-                      </a>
-                    </div>
-                  </div>
-
-                  <hr class="my-3">
-
-                  <div class="eval-item">
-                    <div class="eval-left">
-                      <div class="eval-title">3) RoadwayVR GitHub</div>
-                      <div class="eval-metric">
-                        Templates, starter code, and course utilities.
-                      </div>
-                    </div>
-                    <div class="eval-cta">
-                      <a class="btn btn-sm btn-outline-primary"
-                         href="https://github.com/RoadwayVR"
-                         target="_blank" rel="noopener noreferrer">
-                        View on GitHub
-                      </a>
-                    </div>
-                  </div>
-
-                  <p class="small text-muted mt-3 mb-0">
-                    Student presentations and project pages are published on the course website.
-                  </p>
-
+                  <ul class="mb-0 text-muted justify-desktop">
+                    <li>
+                      <strong>Multiple means of representation:</strong> Concepts are delivered through lecture slides, hands-on slides, video tutorials, and self-paced website resources.
+                    </li>
+                    <li>
+                      <strong>Multiple means of engagement:</strong> Two support channels are provided (Office Hours + Community Learning Platform) to reduce barriers and keep students supported.
+                    </li>
+                    <li>
+                      <strong>Multiple means of expression:</strong> Students demonstrate learning through participation, transportation news brief, weekly deliverables, assignments,
+                      a paper-based midterm with written reasoning, and a design project with professional deliverables (report + presentation + showcase).
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -465,25 +422,25 @@
       </section>
 
       <!-- OUTLINE -->
-      <section id="outline" class="py-5">
+      <section id="outline" class="py-4">
         <div class="container">
-          <h2 class="section-title h3 mb-3">Course Outline</h2>
-          <p class="text-muted mb-4">What you’ll learn and how you’ll be evaluated.</p>
+          <h2 class="section-title h3 mb-2">Course Outline</h2>
+          <p class="text-muted mb-3">What you’ll learn and how you’ll be evaluated.</p>
 
-          <div class="row g-4">
+          <div class="row g-3">
             <!-- Learning Goals -->
             <div class="col-md-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
-                  <h3 class="h5 mb-3">Learning Goals</h3>
-                  <ul class="mb-0">
-                    <li>Explain what a city digital twin is and how the data/model/service/user layers connect</li>
-                    <li>Create CV datasets (frames + labels) and run object detection for traffic scenes</li>
-                    <li>Run object tracking and export traffic analytics (counts, speeds, trajectories)</li>
-                    <li>Build a SUMO network and signal control, then generate a working traffic model</li>
-                    <li>Define demand (movement/volume/speed) and compare physical vs digital behavior</li>
-                    <li>Evaluate performance using KPIs (delay, queue, throughput, emissions) and test improvements</li>
-                    <li>Communicate results clearly using plots, tables, and a public-facing project portfolio page</li>
+                  <h3 class="h5 mb-3">Course Learning Outcomes</h3>
+
+                  <ul class="mb-0 justify-desktop">
+                    <li>Develop foundational knowledge in digital twins for smart cities (computer vision, simulation, optimization, and visualization for planning)</li>
+                    <li>Collect and process real-world traffic data from video using object detection and tracking to produce counts and speed estimates</li>
+                    <li>Build digital road networks and traffic demand models using open-source tools (SUMO, QGIS) and standard modeling practices</li>
+                    <li>Test and compare transportation scenarios (e.g., signal timing alternatives) and evaluate performance using KPIs (delay, emissions, level of service)</li>
+                    <li>Diagnose physical–digital mismatches, propose calibration actions, and justify validation decisions using evidence</li>
+                    <li>Communicate findings through professional reports, visualizations, presentations, and a project showcase (demo video + website)</li>
                   </ul>
                 </div>
               </div>
@@ -495,12 +452,12 @@
                 <div class="card-body">
                   <h3 class="h5 mb-3">Assessment</h3>
                   <ul class="mb-0">
-                    <li>Class Participation (5%)</li>
-                    <li>In-class Deliverables (15%)</li>
-                    <li>Transportation News Brief (10%)</li>
-                    <li>Design Project (35%)</li>
-                    <li>Assignments (10%)</li>
-                    <li>Midterm Examination (paper-based) (25%)</li>
+                    <li>Class participation (weekly) (5%)</li>
+                    <li>In-class deliverables (weekly) (15%)</li>
+                    <li>Transportation News Brief presentation (once per student) (10%)</li>
+                    <li>Assignments (throughout term) (10%)</li>
+                    <li>Midterm examination (paper-based) (Week 8) (25%)</li>
+                    <li>Design project (cumulative) (35%)</li>
                   </ul>
                 </div>
               </div>
@@ -511,11 +468,11 @@
       </section>
 
       <!-- Topics / Materials -->
-      <section id="weeks" class="py-5">
+      <section id="weeks" class="py-4">
         <div class="container">
-          <h2 class="section-title h3 mb-3">Topics</h2>
-          <p class="text-muted mb-4">
-            Week-by-week topics and materials (theory + hands-on) are listed below.
+          <h2 class="section-title h3 mb-2">Topics</h2>
+          <p class="text-muted mb-3">
+            This 12-week course is organized around weekly lecture concepts and hands-on labs. Each week includes lecture slides, hands-on slides, and video tutorials.
           </p>
 
           <div class="table-responsive card card-soft">
@@ -523,207 +480,218 @@
               <thead>
                 <tr>
                   <th class="week-cell">Week</th>
-                  <th>Topic (Theory + Hands-on)</th>
-                  <th class="materials-col">Materials</th>
+                  <th>Topic (Lecture + Hands-on)</th>
+                  <th>Materials</th>
                 </tr>
               </thead>
               <tbody>
 
-                <!-- W1 -->
+                <!-- Week 1 -->
                 <tr>
                   <td class="week-cell">1</td>
                   <td>
-                    <div class="topic-title">Layer 1 — Computer Vision (Data Layer): Fundamentals</div>
-                    <div class="topic-line"><strong>Theory:</strong> Computer vision basics, image annotation, YOLO overview</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Study area selection; frame extraction; dataset creation</div>
+                    <div class="topic-title">Introduction to Digital Twins for Smart Cities</div>
+                    <div class="topic-line"><strong>Lecture:</strong> What is a Smart City? What is a Digital Twin? The 4 Stages of a Digital Twin; Course syllabus overview; Course learning outcomes</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Fundamentals of computer vision; What is an image? Pixel data; Resolution; What are videos? Convolutional Neural Networks (CNNs); Convolution fundamentals</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week01-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week01-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W2 -->
+                <!-- Week 2 -->
                 <tr>
                   <td class="week-cell">2</td>
                   <td>
-                    <div class="topic-title">Object Detection: Training Workflow</div>
-                    <div class="topic-line"><strong>Theory:</strong> Train/validation/test, performance concepts, common failure modes</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Partition datasets; train YOLO on mini-datasets; practice with open datasets; compare results</div>
+                    <div class="topic-title">Computer Vision I (Object Detection)</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Neural networks; CNNs; stages of a CNN; object detection workflow (study area & recording, frame extraction, dataset creation, annotation & classes)</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Dataset partitioning (train/val/test); YOLO Trainer; understanding results</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week02-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week02-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W3 -->
+                <!-- Week 3 -->
                 <tr>
                   <td class="week-cell">3</td>
                   <td>
-                    <div class="topic-title">Object Tracking: Detections → Trajectories</div>
-                    <div class="topic-line"><strong>Theory:</strong> Tracking fundamentals, tracking vs detection, parameters affecting tracking quality; speed/count interpretation</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Run detection + tracking on the study area; review errors; export counts/speeds; quality checks for simulation inputs</div>
+                    <div class="topic-title">Computer Vision II (Object Tracking)</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Detection vs. tracking; bird’s-eye view (homography); multi-object tracking (ByteTrack); Supervision (Roboflow); SimJamComputerVision; SimJamCV workflow</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Real-world data collection to support planning; example observed counts & turning movements; detection and tracking using SimJamCV</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week03-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week03-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W4 -->
+                <!-- Week 4 -->
                 <tr>
                   <td class="week-cell">4</td>
                   <td>
-                    <div class="topic-title">Layer 2 — Simulation (Model Layer): SUMO Fundamentals</div>
-                    <div class="topic-line"><strong>Theory:</strong> SUMO fundamentals, XML structure, NetEdit interface, core modeling concepts</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Create an intersection; define lanes/connections; implement a signal and verify operation</div>
+                    <div class="topic-title">Introduction to Traffic Simulation</div>
+                    <div class="topic-line"><strong>Lecture:</strong> What is traffic simulation? Purpose; examples; SUMO; network development; vehicle characteristics; dynamics; car-following and lane-changing models</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Install SUMO; set environment variables; install Notepad++; SUMO files & UI; create a simple network; add opposite flow; intersections (unsignalized + signalized)</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week04-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week04-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W5 -->
+                <!-- Week 5 -->
                 <tr>
                   <td class="week-cell">5</td>
                   <td>
-                    <div class="topic-title">Virtual Traffic Environment: GIS-Based Base Model</div>
-                    <div class="topic-line"><strong>Theory:</strong> GIS basics and why GIS matters for digital network development</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Build/import an intersection/network using GIS/OSM as a reference layer</div>
+                    <div class="topic-title">Digital Road Network Modelling with GIS</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Spatial data; GIS and the seven steps of GIS; GIS as a foundation for simulation; GIS software types; data layers for simulation; network elements required</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Download/install QGIS; map services; imagery & georeferencing; import a GIS map into simulation</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week05-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week05-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W6 -->
+                <!-- Week 6 -->
                 <tr>
                   <td class="week-cell">6</td>
                   <td>
-                    <div class="topic-title">Demand Modelling &amp; Route Assignment</div>
-                    <div class="topic-line"><strong>Theory:</strong> Calibration basics; traffic movement/volume/speed as inputs</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Create routes/flows; load volumes; verify movements and speed assumptions</div>
+                    <div class="topic-title">Digital Road Network Development</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Edge vs. junction; junction types; import a GIS map into NetEdit; create a road network on top of a GIS map</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Lane connections; right of way; traffic signals; traffic flows (demand)</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week06-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week06-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W7 -->
+                <!-- Week 7 -->
                 <tr>
                   <td class="week-cell">7</td>
                   <td>
-                    <div class="topic-title">Digital Twin Synchronization: CV → SUMO</div>
-                    <div class="topic-line"><strong>Theory:</strong> Synchronization principles, validation logic, evidence-based comparison of physical vs digital traffic</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Side-by-side comparison (video vs SUMO); show alignment with evidence (volumes, speeds, movement patterns)</div>
+                    <div class="topic-title">Simulation Calibration</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Accurate network development; accurate signal timing; movement calibration; volume calibration; speed calibration</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Traffic movement/volume/speed calibration</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week07-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week07-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W8 Midterm -->
+                <!-- Week 8 -->
                 <tr>
                   <td class="week-cell">8</td>
                   <td>
-                    <div class="topic-title">Midterm (Paper-Based): Physical vs Digital World Reasoning</div>
+                    <div class="topic-title">Midterm (Paper-Based): Physical vs. Digital World Reasoning</div>
                     <div class="topic-line">
-                      <strong>In-class (no PC):</strong> interpret printed outputs (detection/tracking summaries, volumes/speeds, SUMO snapshots, mismatch plots) and:
+                      <strong>In-class assessment (no computer):</strong> A paper-based exam including fundamental concepts and printed figures/tables from computer vision (detection/tracking results) and simulation (volumes/speeds, SUMO snapshots, mismatch plots). Students will:
                       <ul>
-                        <li>identify likely sources of mismatch (CV vs simulation)</li>
-                        <li>propose calibration actions (what to change and why)</li>
-                        <li>justify validation decisions (what evidence proves alignment)</li>
-                        <li>answer short conceptual questions on YOLO/training, tracking, and SUMO modeling</li>
+                        <li>Answer conceptual questions on digital twins and smart cities concepts</li>
+                        <li>Answer conceptual questions on real-world data collection using object detection and tracking</li>
+                        <li>Answer short questions on traffic simulation and GIS-based network modelling</li>
+                        <li>Interpret outputs and identify likely sources of mismatch (computer vision vs. simulation)</li>
+                        <li>Propose specific calibration actions (what to change and why)</li>
                       </ul>
                     </div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Midterm Packet (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Reference Pack (PDF)</a>
+                      <span class="text-muted small">N/A (paper-based)</span>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W9 -->
+                <!-- Week 9 -->
                 <tr>
                   <td class="week-cell">9</td>
                   <td>
-                    <div class="topic-title">Layer 3 — Optimization (Service Layer): KPIs &amp; Improvements</div>
-                    <div class="topic-line"><strong>Theory:</strong> Core traffic KPIs (delay, queues, throughput, emissions) and what they mean for decisions</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Run KPI app for existing condition and DT condition; compare baseline results; identify bottlenecks; test improvement ideas</div>
+                    <div class="topic-title">Optimization</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Intersection control types; traffic signal technology; signal planning; phasing; signal control types; case studies</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Intersection functional/physical areas; KPIs; delay → LOS; optimization</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week09-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week09-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W10 -->
+                <!-- Week 10 -->
                 <tr>
                   <td class="week-cell">10</td>
                   <td>
-                    <div class="topic-title">Layer 4 — Decision (User Layer): Visualization for Decision-Making (Python)</div>
-                    <div class="topic-line"><strong>Theory:</strong> Visualization best practices (comparisons, storytelling with data, clear labels/captions)</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Create before/after KPI plots; prepare decision-ready figures for a project page</div>
+                    <div class="topic-title">Decision I (Communication & Presentation)</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Select best strategy (KPI interpretation; signal timing interpretation); create a professional presentation (visualization + preparation)</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Video demonstration</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Theory Slides (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Hands-on Slides (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week10-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week10-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W11 -->
+                <!-- Week 11 -->
                 <tr>
                   <td class="week-cell">11</td>
                   <td>
-                    <div class="topic-title">Showcase Your Digital Twin (Portfolio Week)</div>
-                    <div class="topic-line"><strong>Theory:</strong> Documenting a technical project for non-technical audiences: story, evidence, impact</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Build a public project page (GitHub Pages/README) with demo video, screenshots, and “Pixels to Policy” summary</div>
+                    <div class="topic-title">Decision II (Write a Formal Technical Report)</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Report structure; study goal/objectives; formatting tips; writing style & clarity; referencing</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Final project website + demo video + screenshots + KPI tables/plots; final project presentations</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Template (PDF)</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Example Pages</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week11-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week11-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
 
-                <!-- W12 -->
+                <!-- Week 12 -->
                 <tr>
                   <td class="week-cell">12</td>
                   <td>
-                    <div class="topic-title">Final Showcase: Demo + Portfolio Submission</div>
-                    <div class="topic-line"><strong>Theory:</strong> Communicating results to decision-makers (problem → method → evidence → recommendation)</div>
-                    <div class="topic-line"><strong>Hands-on:</strong> Finalize project page + KPI tables/plots + demo video; publish and submit</div>
+                    <div class="topic-title">Presentation Week</div>
+                    <div class="topic-line"><strong>Lecture:</strong> Student presentations</div>
+                    <div class="topic-line"><strong>Hands-on:</strong> Student presentations</div>
                   </td>
-                  <td class="materials-col">
+                  <td>
                     <div class="materials-stack">
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Submission Checklist</a>
-                      <a class="btn btn-sm btn-outline-primary" href="#" target="_blank" rel="noopener noreferrer">Rubric (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week12-a.pdf" target="_blank" rel="noopener noreferrer">Lecture Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary" href="assets/slide/RWR4013-Week12-b.pdf" target="_blank" rel="noopener noreferrer">Hands-on Slide (PDF)</a>
+                      <a class="btn btn-sm btn-outline-primary disabled" href="#" aria-disabled="true">Video Tutorial (Coming soon)</a>
                     </div>
                   </td>
                 </tr>
@@ -735,19 +703,65 @@
         </div>
       </section>
 
-      <!-- Office Hours -->
-      <section id="office-hours" class="py-5 bg-white">
+      <!-- Prerequisites -->
+      <section id="prerequisites" class="py-4 bg-white">
         <div class="container">
-          <h2 class="section-title h3 mb-3">Office Hours</h2>
-          <p class="text-muted mb-4">
-            By appointment via email or via the course Discord community.
+          <h2 class="section-title h3 mb-2">Prerequisites</h2>
+          <p class="text-muted mb-3">
+            No prior computer vision or traffic simulation experience required.
+          </p>
+
+          <div class="card card-soft">
+            <div class="card-body">
+              <ul class="mb-0">
+                <li>Basic understanding of transportation concepts (traffic flow, intersections, signals)</li>
+                <li>Comfort with software installation and learning new tools</li>
+                <li>Willingness to engage with technical material</li>
+              </ul>
+              <p class="small text-muted mt-3 mb-0">
+                Recommended background: Urban planning, transportation planning, or related field. Students from other disciplines (policy, design, data science) are welcome with instructor permission.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Student Support and Accessibility -->
+      <section id="support" class="py-4 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 mb-2">Student Support &amp; Accessibility</h2>
+          <p class="text-muted mb-3">
+            Support channels designed to reduce barriers and help students succeed.
+          </p>
+
+          <div class="card card-soft">
+            <div class="card-body">
+              <ul class="mb-0">
+                <li><strong>Office Hours:</strong> By appointment via email (flexible scheduling; virtual meetings available).</li>
+                <li><strong>Discord Community:</strong> Continuous Q&amp;A support (target ~24-hour response time), peer learning, archived resources, troubleshooting tips.</li>
+                <li><strong>Accessibility:</strong> Students requiring accommodations should contact their Accessibility Services office as early as possible.</li>
+                <li><strong>Technical Support:</strong> Required software (SUMO, QGIS) is free and open-source; installation tutorials and troubleshooting guides provided.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Office Hours -->
+      <section id="office-hours" class="py-4 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 mb-2">Office Hours</h2>
+          <p class="text-muted mb-3">
+            Appointment by email or join the community Discord group for ongoing Q&amp;A and peer support.
           </p>
 
           <div class="card card-soft">
             <div class="card-body">
               <div class="d-flex flex-column flex-md-row gap-2 align-items-md-center justify-content-between">
                 <div class="text-muted">
-                  Discord is recommended for quick questions and announcements.
+                  Prefer Discord for quick questions, study groups, and announcements.
                 </div>
                 <div class="d-flex flex-wrap gap-2">
                   <a class="btn btn-sm btn-outline-primary" href="mailto:AhmadMohammadi1441@gmail.com">
@@ -771,30 +785,30 @@
       </section>
 
       <!-- Optional Course Materials -->
-      <section id="optional-materials" class="py-5 bg-white">
+      <section id="optional-materials" class="py-4 bg-white">
         <div class="container">
-          <h2 class="section-title h3 mb-3">Optional Course Materials</h2>
-          <p class="text-muted mb-4">
-            Recommended references for computer vision + digital twin modelling and evaluation.
+          <h2 class="section-title h3 mb-2">Optional Course Materials</h2>
+          <p class="text-muted mb-3">
+            Recommended references for computer vision, traffic operations, and digital twins.
           </p>
 
           <div class="card card-soft">
             <div class="card-body">
               <ol class="mb-0">
                 <li class="mb-3">
-                  University of California, Berkeley. (Fall 2025). <em>CS180/280A: Intro to computer vision and computational photography</em>.
+                  University of California, Berkeley. Course Materials: <em>CS180/280A: Intro to computer vision and computational photography</em> (Fall 2025).
                   <a class="link-primary" href="https://cal-cs180.github.io/fa25/" target="_blank" rel="noopener noreferrer">
                     https://cal-cs180.github.io/fa25/
                   </a>
                 </li>
                 <li class="mb-3">
-                  Wunderlich, K., Vasudevan, M., &amp; Wang, P. (2019). <em>Traffic Analysis Toolbox Volume III</em> (FHWA-HOP-18-036). FHWA.
+                  Wunderlich, K., Vasudevan, M., &amp; Wang, P. (2019). <em>Traffic analysis toolbox</em> (FHWA-HOP-18-036). FHWA.
                   <a class="link-primary" href="https://ops.fhwa.dot.gov/publications/fhwahop18036/fhwahop18036.pdf" target="_blank" rel="noopener noreferrer">
                     https://ops.fhwa.dot.gov/publications/fhwahop18036/fhwahop18036.pdf
                   </a>
                 </li>
                 <li>
-                  Tao, F., Zhang, M., &amp; Nee, A. Y. C. (2019). <em>Digital Twin Driven Smart Manufacturing</em>. Academic Press.
+                  Tao, F., Zhang, M., &amp; Nee, A. Y. C. (2019). <em>Digital twin driven smart manufacturing</em>. Academic Press.
                 </li>
               </ol>
             </div>
@@ -804,10 +818,10 @@
       </section>
 
       <!-- Course Website -->
-      <section id="course-website" class="py-5 bg-white">
+      <section id="course-website" class="py-4 bg-white">
         <div class="container">
-          <h2 class="section-title h3 mb-3">Course Website</h2>
-          <p class="text-muted mb-4">
+          <h2 class="section-title h3 mb-2">Course Website</h2>
+          <p class="text-muted mb-3">
             Access the latest course page, updates, and public materials here:
           </p>
 
@@ -828,11 +842,36 @@
         </div>
       </section>
 
-      <!-- Career Outcomes -->
-      <section id="career" class="py-5 bg-white">
+      <!-- Course Description PDF -->
+      <section id="course-description" class="py-4 bg-white">
         <div class="container">
-          <h2 class="section-title h3 mb-3">Career Outcomes</h2>
-          <p class="text-muted mb-4">
+          <h2 class="section-title h3 mb-2">Course Description (PDF)</h2>
+          <p class="text-muted mb-3">
+            Download the official course description document.
+          </p>
+
+          <div class="card card-soft">
+            <div class="card-body d-flex flex-column flex-md-row gap-2 align-items-md-center justify-content-between">
+              <div class="text-muted">
+                RWR-4013-Digital-Twins-for-Smart-Cities.pdf
+              </div>
+              <a class="btn btn-sm btn-primary"
+                 href="assets/course/RWR-4013-Digital-Twins-for-Smart-Cities.pdf"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Career Outcomes -->
+      <section id="career" class="py-4 bg-white">
+        <div class="container">
+          <h2 class="section-title h3 mb-2">Career Outcomes</h2>
+          <p class="text-muted mb-3">
             The course provides a foundation for roles such as:
           </p>
 
@@ -840,24 +879,16 @@
             <div class="card-body">
               <ul class="role-list">
                 <li>
-                  <span class="role-title">Digital Twin / Smart City Analyst:</span>
-                  building and validating city-scale digital twins; connecting sensing outputs to simulation; decision support
+                  <span class="role-title">Smart City Digital Twin Analyst:</span>
+                  Builds an end-to-end workflow from real-world data to simulation, scenario testing, and decision-ready outputs.
                 </li>
                 <li>
-                  <span class="role-title">Computer Vision / AI Analyst:</span>
-                  dataset creation, detection/tracking workflows, model evaluation, and traffic analytics export
+                  <span class="role-title">Computer Vision Mobility Data Analyst:</span>
+                  Produces counts and speed estimates from video using object detection/tracking to support planning studies.
                 </li>
                 <li>
-                  <span class="role-title">Traffic Simulation Analyst / Transportation Analyst:</span>
-                  network and demand modeling, calibration reasoning, scenario testing, and KPI-based alternatives analysis
-                </li>
-                <li>
-                  <span class="role-title">Applied Data / Performance Analyst:</span>
-                  computing KPIs, comparing before/after outcomes, producing defensible summaries
-                </li>
-                <li>
-                  <span class="role-title">Visualization / Planning Insights Analyst:</span>
-                  communicating results through clear plots, tables, and portfolio-ready storytelling
+                  <span class="role-title">Transportation Simulation &amp; Scenario Analyst:</span>
+                  Develops and calibrates simulation models, compares alternatives, and evaluates KPIs (delay, LOS, emissions).
                 </li>
               </ul>
             </div>
@@ -867,22 +898,20 @@
       </section>
 
       <!-- RESOURCES -->
-      <section id="resources" class="py-5 bg-white">
+      <section id="resources" class="py-4 bg-white">
         <div class="container">
-          <h2 class="section-title h3 mb-3">Resources</h2>
+          <h2 class="section-title h3 mb-2">Resources</h2>
 
-          <div class="row g-4">
+          <div class="row g-3">
             <div class="col-md-6">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h3 class="h5 mb-3">Software</h3>
                   <ul class="mb-0">
-                    <li>Python (computer vision + tracking + analytics)</li>
-                    <li>YOLO workflow (training + inference)</li>
-                    <li>SUMO (network, demand, signals, outputs)</li>
-                    <li>QGIS / OSM (optional for base mapping and network reference)</li>
-                    <li>Python plotting (Matplotlib / Plotly) for KPI visualization</li>
-                    <li>GitHub Pages / README for portfolio publishing</li>
+                    <li>Computer vision tools (object detection + tracking workflows)</li>
+                    <li>Traffic simulation tools (SUMO)</li>
+                    <li>GIS tools for network building (QGIS / OSM)</li>
+                    <li>Optional: visualization tools for project showcase (video + website; Unity if used)</li>
                   </ul>
                 </div>
               </div>
@@ -894,7 +923,6 @@
                   <h3 class="h5 mb-3">Links</h3>
                   <ul class="mb-0">
                     <li><a href="/" class="link-primary">RoadwayVR Home</a></li>
-                    <li><a href="https://roadwayvr.github.io/DigitalTwinsforSmartCities/" target="_blank" rel="noopener noreferrer" class="link-primary">RWR4013 Course Website</a></li>
                     <li><a href="https://www.youtube.com/@RoadwayVR" target="_blank" rel="noopener noreferrer" class="link-primary">RoadwayVR YouTube</a></li>
                     <li><a href="https://github.com/RoadwayVR" target="_blank" rel="noopener noreferrer" class="link-primary">RoadwayVR GitHub</a></li>
                   </ul>
@@ -929,9 +957,12 @@
             <a href="#outline" class="footer-link">Outline</a>
             <a href="#overview" class="footer-link">Course Overview</a>
             <a href="#weeks" class="footer-link">Topics</a>
+            <a href="#prerequisites" class="footer-link">Prerequisites</a>
+            <a href="#support" class="footer-link">Student Support &amp; Accessibility</a>
             <a href="#office-hours" class="footer-link">Office Hours</a>
             <a href="#optional-materials" class="footer-link">Optional Materials</a>
             <a href="#course-website" class="footer-link">Course Website</a>
+            <a href="#course-description" class="footer-link">Course Description (PDF)</a>
             <a href="#career" class="footer-link">Career Outcomes</a>
             <a href="#resources" class="footer-link">Resources</a>
           </div>
@@ -950,5 +981,24 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"></script>
 
+    <!-- Auto-update GitHub stars (safe to keep; does nothing if element isn't present) -->
+    <script>
+      (function(){
+        const owner = "RoadwayVR";
+        const repo = "SUMO-Traffic-Simulator-Tutorial";
+        const el = document.getElementById("githubStars");
+        if (!el) return;
+
+        fetch(`https://api.github.com/repos/${owner}/${repo}`)
+          .then(r => r.ok ? r.json() : Promise.reject(r))
+          .then(data => {
+            const stars = data && typeof data.stargazers_count === "number"
+              ? data.stargazers_count.toLocaleString()
+              : el.textContent || "90";
+            el.textContent = stars;
+          })
+          .catch(() => {});
+      })();
+    </script>
   </body>
 </html>
